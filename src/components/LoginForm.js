@@ -12,7 +12,7 @@ const LoginForm = () => {
 					placeholder="username or email"
 				/>
 			</CardSection>
-			
+
 			<CardSection>
 				<Input
 					label="password"
@@ -23,6 +23,10 @@ const LoginForm = () => {
 
 			<CardSection>
 				<Button> Sign In </Button>
+			</CardSection>
+
+			<CardSection>
+				<Button> Register </Button>
 			</CardSection>
 		</View>
 	);
