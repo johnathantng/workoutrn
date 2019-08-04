@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
+import Router from './Router';
+
 const App = () => {
 	return (
-		<View> 
-			<Text> Hello world! </Text>
-		</View>
+		<Router />
 	);
 }
 
