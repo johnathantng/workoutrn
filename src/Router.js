@@ -3,6 +3,7 @@ import { Scene, Router, Actions } from 'react-native-router-flux';
 
 //	Import components below this
 import LoginForm from './components/LoginForm';
+import RegisterForm from './components/RegisterForm';
 
 const RouterComponent = () => {
 	return (
@@ -10,6 +11,7 @@ const RouterComponent = () => {
 			<Scene key="root" hideNavBar>
 				<Scene key="auth">
 					<Scene key="login" component={LoginForm} title="Please Login" titleStyle={styles.sceneTitleText} initial />
+					<Scene key="register" component={RegisterForm} title="Register a User" titleStyle={styles.sceneTitleText} />
 				</Scene>
 			</Scene>
 		</Router>

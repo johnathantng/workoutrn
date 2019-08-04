@@ -4,13 +4,20 @@ import { Actions } from 'react-native-router-flux';
 
 import { CardSection, Input, Button } from './common';
 
-const LoginForm = () => {
+const RegisterForm = () => {
 	return (
 		<View>
 			<CardSection>
 				<Input
 					label="username"
-					placeholder="username or email"
+					placeholder="username"
+				/>
+			</CardSection>
+
+			<CardSection>
+				<Input
+					label="email"
+					placeholder="email"
 				/>
 			</CardSection>
 
@@ -23,14 +30,21 @@ const LoginForm = () => {
 			</CardSection>
 
 			<CardSection>
-				<Button> Sign In </Button>
+				<Input
+					label="repeat password"
+					placeholder="confirm password"
+				/>
 			</CardSection>
 
 			<CardSection>
-				<Button onPress={() => Actions.register()}> Register </Button>
+				<Button> Register </Button>
+			</CardSection>
+
+			<CardSection>
+				<Button onPress={() => Actions.pop()}> Already a user? </Button>
 			</CardSection>
 		</View>
 	);
 };
 
-export default LoginForm;
+export default RegisterForm;
