@@ -9,11 +9,18 @@ const RouterComponent = () => {
 		<Router>
 			<Scene key="root" hideNavBar>
 				<Scene key="auth">
-					<Scene key="login" component={LoginForm} title="Please Login" initial />
+					<Scene key="login" component={LoginForm} title="Please Login" titleStyle={styles.sceneTitleText} initial />
 				</Scene>
 			</Scene>
 		</Router>
 	);
+};
+
+const styles = {
+	sceneTitleText: {
+		flex: 1,
+		textAlign: 'center'
+	}
 };
 
 export default RouterComponent;
