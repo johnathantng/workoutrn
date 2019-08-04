@@ -1,6 +1,8 @@
 import React from 'react';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 
+//	Import components below this
+
 const RouterComponent = () => {
 	return (
 		<Router>
