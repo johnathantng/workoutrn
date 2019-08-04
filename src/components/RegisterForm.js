@@ -33,6 +33,7 @@ const RegisterForm = () => {
 				<Input
 					label="repeat password"
 					placeholder="confirm password"
+					secureTextEntry
 				/>
 			</CardSection>
 
