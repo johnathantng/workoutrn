@@ -12,21 +12,24 @@ const RegisterForm = () => {
 
 	onRegUserChange = (text) => {
 		setRegUser(text);
-		console.log(regUser);
 	};
 
 	onRegEmailChange = (text) => {
 		setRegEmail(text);
-		console.log(regEmail);
 	};
 
 	onRegPassChange = (text) => {
 		setRegPass(text);
-		console.log(regPass);
 	}
 
 	onRegRepPassChange = (text) => {
 		setRegRepPass(text);
+	}
+
+	onRegisterPress = () => {
+		console.log(regUser);
+		console.log(regEmail);
+		console.log(regPass);
 		console.log(regRepPass);
 	}
 
@@ -71,7 +74,7 @@ const RegisterForm = () => {
 			</CardSection>
 
 			<CardSection>
-				<Button> Register </Button>
+				<Button onPress={() => onRegisterPress()}> Register </Button>
 			</CardSection>
 
 			<CardSection>
