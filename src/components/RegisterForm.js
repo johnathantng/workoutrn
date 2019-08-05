@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
@@ -12,18 +12,22 @@ const RegisterForm = () => {
 
 	onRegUserChange = (text) => {
 		setRegUser(text);
+		console.log(regUser);
 	};
 
-	setRegEmail = (text) => {
+	onRegEmailChange = (text) => {
 		setRegEmail(text);
+		console.log(regEmail);
 	};
 
-	setRegPass = (text) => {
+	onRegPassChange = (text) => {
 		setRegPass(text);
+		console.log(regPass);
 	}
 
-	setRegPass = (text) => {
+	onRegRepPassChange = (text) => {
 		setRegRepPass(text);
+		console.log(regRepPass);
 	}
 
 	return (
@@ -32,6 +36,8 @@ const RegisterForm = () => {
 				<Input
 					label="username"
 					placeholder="username"
+					value={regUser}
+					onChangeText={(text) => onRegUserChange(text)}
 				/>
 			</CardSection>
 
@@ -39,6 +45,8 @@ const RegisterForm = () => {
 				<Input
 					label="email"
 					placeholder="email"
+					value={regEmail}
+					onChangeText={(text) => onRegEmailChange(text)}
 				/>
 			</CardSection>
 
@@ -46,6 +54,8 @@ const RegisterForm = () => {
 				<Input
 					label="password"
 					placeholder="password"
+					value={regPass}
+					onChangeText={(text) => onRegPassChange(text)}
 					secureTextEntry
 				/>
 			</CardSection>
@@ -54,6 +64,8 @@ const RegisterForm = () => {
 				<Input
 					label="repeat password"
 					placeholder="confirm password"
+					value={regRepPass}
+					onChangeText={(text) => onRegRepPassChange(text)}
 					secureTextEntry
 				/>
 			</CardSection>
