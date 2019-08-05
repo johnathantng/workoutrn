@@ -6,10 +6,16 @@ import { CardSection, Input, Button } from './common';
 
 const LoginForm = () => {
 	const [loginUser, setLoginUser] = useState('');
+	const [loginPass, setLoginPass] = useState('');
 
-	onUserChange = (text) => {
+	onLoginUserChange = (text) => {
 		setLoginUser(text);
 		console.log({loginUser});
+	};
+
+	onLoginPassChange = (text) => {
+		setLoginPass(text);
+		console.log({loginPass});
 	};
 
 	return (
@@ -19,7 +25,7 @@ const LoginForm = () => {
 					label="username"
 					placeholder="username or email"
 					value={loginUser}
-					onChangeText={(text) => onUserChange(text)}
+					onChangeText={(text) => onLoginUserChange(text)}
 				/>
 			</CardSection>
 
@@ -27,6 +33,8 @@ const LoginForm = () => {
 				<Input
 					label="password"
 					placeholder="password"
+					value={loginPass}
+					onChangeText={(text) => onLoginPassChange(text)}
 					secureTextEntry
 				/>
 			</CardSection>
