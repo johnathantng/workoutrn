@@ -16,6 +16,10 @@ const LoginForm = () => {
 		setLoginPass(text);
 	};
 
+	onLoginPress = () => {
+		
+	};
+
 	return (
 		<View>
 			<CardSection>

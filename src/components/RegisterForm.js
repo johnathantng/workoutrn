@@ -20,18 +20,18 @@ const RegisterForm = () => {
 
 	onRegPassChange = (text) => {
 		setRegPass(text);
-	}
+	};
 
 	onRegRepPassChange = (text) => {
 		setRegRepPass(text);
-	}
+	};
 
 	onRegisterPress = () => {
 		console.log(regUser);
 		console.log(regEmail);
 		console.log(regPass);
 		console.log(regRepPass);
-	}
+	};
 
 	return (
 		<View>
