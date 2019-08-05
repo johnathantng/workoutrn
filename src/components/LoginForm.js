@@ -10,12 +10,10 @@ const LoginForm = () => {
 
 	onLoginUserChange = (text) => {
 		setLoginUser(text);
-		console.log({loginUser});
 	};
 
 	onLoginPassChange = (text) => {
 		setLoginPass(text);
-		console.log({loginPass});
 	};
 
 	return (
