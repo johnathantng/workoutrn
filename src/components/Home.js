@@ -9,7 +9,7 @@ const Home = () => {
 			<ScrollView style={styles.scrollViewStyle}>
 				<Text> Hello World! </Text>
 			</ScrollView>
-			<NavBar />
+			<NavBar homeOpacity={0.7} />
 		</View>
 	);
 };

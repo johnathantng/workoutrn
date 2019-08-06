@@ -1,12 +1,26 @@
 import React from 'react';
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native';
+
+import NavBar from './NavBar';
 
 const Event = () => {
 	return (
-		<View>
-			<Text> Event </Text>
+		<View style={styles.containerStyle}>
+			<ScrollView style={styles.scrollViewStyle}>
+				<Text> Event </Text>
+			</ScrollView>
+			<NavBar eventOpacity={0.7} />
 		</View>
 	);
 };
+
+const styles = {
+	containerStyle: {
+		flex: 1
+	},
+	scrollViewStyle: {
+		flex: 1
+	}
+}
 
 export default Event;

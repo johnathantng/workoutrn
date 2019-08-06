@@ -9,15 +9,18 @@ const NavBar = (props) => {
 		<View style={styles.navBar}>
 			<NavBarIcon 
 				onPress={() => Actions.main()}
-				image={require('../assets/icons/home.png')} 
+				image={require('../assets/icons/home.png')}
+				opacityLevel={props.homeOpacity}
 			/>
 			<NavBarIcon
 				onPress={() => Actions.second()}
 				image={require('../assets/icons/event.png')}
+				opacityLevel={props.eventOpacity}
 			/>
 			<NavBarIcon
 				onPress={() => Actions.third()}
 				image={require('../assets/icons/account.png')}
+				opacityLevel={props.accountOpacity}
 			/>
 		</View>
 	);
