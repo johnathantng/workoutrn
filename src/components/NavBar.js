@@ -1,14 +1,24 @@
 import React from 'react';
 import { View } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 import { NavBarIcon } from './common';
 
 const NavBar = (props) => {
 	return (
 		<View style={styles.navBar}>
-			<NavBarIcon image={require('../assets/icons/home.png')} />
-			<NavBarIcon image={require('../assets/icons/event.png')} />
-			<NavBarIcon image={require('../assets/icons/account.png')} />
+			<NavBarIcon 
+				onPress={() => Actions.main()}
+				image={require('../assets/icons/home.png')} 
+			/>
+			<NavBarIcon
+				onPress={() => Actions.second()}
+				image={require('../assets/icons/event.png')}
+			/>
+			<NavBarIcon
+				onPress={() => Actions.third()}
+				image={require('../assets/icons/account.png')}
+			/>
 		</View>
 	);
 };

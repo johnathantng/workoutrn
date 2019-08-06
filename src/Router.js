@@ -5,6 +5,8 @@ import { Scene, Router, Actions } from 'react-native-router-flux';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import Home from './components/Home';
+import Event from './components/Event';
+import Account from './components/Account';
 
 const RouterComponent = () => {
 	return (
@@ -16,6 +18,12 @@ const RouterComponent = () => {
 				</Scene>
 				<Scene key="main">
 					<Scene key="home" component={Home} title="Workout" titleStyle={styles.sceneTitleText} initial />
+				</Scene>
+				<Scene key="second">
+					<Scene key="event" component={Event} title="Calendar" titleStyle={styles.sceneTitleText} initial />
+				</Scene>
+				<Scene key="third">
+					<Scene key="account" component={Account} title="Account" titleStyle={styles.sceneTitleText} initial />
 				</Scene>
 			</Scene>
 		</Router>
