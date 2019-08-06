@@ -17,7 +17,7 @@ const styles = {
 	navBar: {
 		flexDirection: 'row',
 		backgroundColor: '#fff',
-		padding: 5,
+		padding: 10,
 		justifyContent: 'space-between',
 		borderTopWidth: 1,
 		borderColor: '#ddd',
