@@ -17,7 +17,7 @@ const LoginForm = () => {
 	};
 
 	onLoginPress = () => {
-		
+		Actions.main();
 	};
 
 	return (
@@ -42,7 +42,7 @@ const LoginForm = () => {
 			</CardSection>
 
 			<CardSection>
-				<Button> Sign In </Button>
+				<Button onPress={() => onLoginPress()}> Sign In </Button>
 			</CardSection>
 
 			<CardSection>
