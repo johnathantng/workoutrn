@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
 
-import { CardSection, Input, Button } from './common';
+import { CardSection, Input, Button, Spinner } from './common';
 
 const LoginForm = () => {
 	const [loginUser, setLoginUser] = useState('');
@@ -20,6 +20,7 @@ const LoginForm = () => {
 	};
 
 	onLoginPress = () => {
+		isLoading(true);
 		axios.post('http://10.0.2.2:8685/login', {
 			username: loginUser,
 			password: loginPass
@@ -27,9 +28,29 @@ const LoginForm = () => {
 		.then(user => {
 			if (user.data.user_id) {
 				Actions.main({type: 'reset'});
+				isLoading(false);
 			}
 		})
-		.catch(err => setError(true))
+		.catch(err => {
+			setError(true);
+			isLoading(false);
+		})
+	};
+
+	renderLoginButton = () => {
+		if (loading) {
+			return (
+				<CardSection>
+					<Spinner />
+				</CardSection>
+			);
+		} else {
+			return (
+				<CardSection>
+					<Button onPress={() => onLoginPress()}> Sign In </Button>
+				</CardSection>
+			);
+		}
 	};
 
 	hasError = () => {
@@ -63,9 +84,7 @@ const LoginForm = () => {
 				/>
 			</CardSection>
 
-			<CardSection>
-				<Button onPress={() => onLoginPress()}> Sign In </Button>
-			</CardSection>
+			{renderLoginButton()}
 
 			<CardSection>
 				<Button onPress={() => {
