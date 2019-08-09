@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
 
@@ -8,6 +8,8 @@ import { CardSection, Input, Button } from './common';
 const LoginForm = () => {
 	const [loginUser, setLoginUser] = useState('');
 	const [loginPass, setLoginPass] = useState('');
+	const [error, setError] = useState(false);
+	const [loading, isLoading] = useState(false);
 
 	onLoginUserChange = (text) => {
 		setLoginUser(text);
@@ -27,7 +29,17 @@ const LoginForm = () => {
 				Actions.main({type: 'reset'});
 			}
 		})
-		.catch(err => console.log('failed to login'))
+		.catch(err => setError(true))
+	};
+
+	hasError = () => {
+		if (error) {
+				return (
+				<CardSection style={styles.errorContainer}>
+					<Text style={styles.errorText}> Wrong User Credentials </Text>
+				</CardSection>
+			);
+		}
 	};
 
 	return (
@@ -56,10 +68,28 @@ const LoginForm = () => {
 			</CardSection>
 
 			<CardSection>
-				<Button onPress={() => Actions.register()}> Register </Button>
+				<Button onPress={() => {
+						setError(false);
+						Actions.register();
+					}
+				}> 
+					Register 
+				</Button>
 			</CardSection>
+
+			{hasError()}
+
 		</View>
 	);
 };
+
+const styles = {
+	errorContainer: {
+		justifyContent: 'center'
+	},
+	errorText: {
+		color: 'red'
+	}
+}
 
 export default LoginForm;
