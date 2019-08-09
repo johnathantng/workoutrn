@@ -37,8 +37,14 @@ const RegisterForm = () => {
 				email: regEmail,
 				password: regPass
 			})
-			.then(isLoading(false))
-			.catch(err => setError(true))
+			.then(res => {
+				Actions.pop();
+				isLoading(false);
+			})
+			.catch(err => {
+				setError(true);
+				isLoading(false);
+			})
 		}
 	};
 
