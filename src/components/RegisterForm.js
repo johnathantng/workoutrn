@@ -30,7 +30,7 @@ const RegisterForm = () => {
 	onRegisterPress = () => {
 		if (regPass == regRepPass) {
 			axios.post('http://10.0.2.2:8685/register', {
-				name: regUser,
+				username: regUser,
 				email: regEmail,
 				password: regPass
 			})

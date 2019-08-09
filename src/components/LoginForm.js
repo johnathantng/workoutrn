@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import axios from 'axios';
 
 import { CardSection, Input, Button } from './common';
 
@@ -17,7 +18,16 @@ const LoginForm = () => {
 	};
 
 	onLoginPress = () => {
-		Actions.main();
+		axios.post('http://10.0.2.2:8685/login', {
+			username: loginUser,
+			password: loginPass
+		})
+		.then(user => {
+			if (user.data.user_id) {
+				Actions.main({type: 'reset'});
+			}
+		})
+		.catch(err => console.log('failed to login'))
 	};
 
 	return (
