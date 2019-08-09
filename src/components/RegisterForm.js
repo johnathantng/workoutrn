@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
 
-import { CardSection, Input, Button } from './common';
+import { CardSection, Input, Button, Spinner } from './common';
 
 const RegisterForm = () => {
 	const [regUser, setRegUser] = useState('');
@@ -11,6 +11,7 @@ const RegisterForm = () => {
 	const [regPass, setRegPass] = useState('');
 	const [regRepPass, setRegRepPass] = useState('');
 	const [error, setError] = useState(false);
+	const [loading, isLoading] = useState(false);
 
 	onRegUserChange = (text) => {
 		setRegUser(text);
@@ -29,13 +30,31 @@ const RegisterForm = () => {
 	};
 
 	onRegisterPress = () => {
+		isLoading(true);
 		if (regPass == regRepPass) {
 			axios.post('http://10.0.2.2:8685/register', {
 				username: regUser,
 				email: regEmail,
 				password: regPass
 			})
+			.then(isLoading(false))
 			.catch(err => setError(true))
+		}
+	};
+
+	renderRegisterButton = () => {
+		if (loading) {
+			return (
+				<CardSection>
+					<Spinner />
+				</CardSection>
+			);
+		} else {
+			return (
+				<CardSection>
+					<Button onPress={() => onRegisterPress()}> Register </Button>
+				</CardSection>
+			);
 		}
 	};
 
@@ -89,9 +108,7 @@ const RegisterForm = () => {
 				/>
 			</CardSection>
 
-			<CardSection>
-				<Button onPress={() => onRegisterPress()}> Register </Button>
-			</CardSection>
+			{renderRegisterButton()}
 
 			<CardSection>
 				<Button onPress={() => Actions.pop()}> Already a user? </Button>
