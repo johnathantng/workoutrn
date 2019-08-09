@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import axios from 'axios';
 
 import { CardSection, Input, Button } from './common';
 
@@ -27,11 +28,38 @@ const RegisterForm = () => {
 	};
 
 	onRegisterPress = () => {
-		console.log(regUser);
-		console.log(regEmail);
-		console.log(regPass);
-		console.log(regRepPass);
+		if (regPass == regRepPass) {
+			axios.post('http://10.0.2.2:8685/register', {
+				name: regUser,
+				email: regEmail,
+				password: regPass
+			})
+			.catch(err => console.log('failed to register!'))
+		}
 	};
+
+	/*
+		onSubmitSignIn = () => {
+			fetch('http://localhost:3001/register', {
+				method: 'post',
+				headers: {'Content-Type': 'application/json'},
+				body: JSON.stringify({
+					email: this.state.email,
+					password: this.state.password,
+					name: this.state.name
+				})
+			})
+				.then(response => response.json())
+				.then(user => {
+					if (user.id){
+						this.props.loadUser(user);
+						this.props.onRouteChange('home');
+					} else {
+						alert ('not recognized');
+					}
+			})
+		}
+	*/
 
 	return (
 		<View>
