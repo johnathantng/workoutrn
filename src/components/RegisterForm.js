@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
 
@@ -10,6 +10,7 @@ const RegisterForm = () => {
 	const [regEmail, setRegEmail] = useState('');
 	const [regPass, setRegPass] = useState('');
 	const [regRepPass, setRegRepPass] = useState('');
+	const [error, setError] = useState(false);
 
 	onRegUserChange = (text) => {
 		setRegUser(text);
@@ -34,32 +35,19 @@ const RegisterForm = () => {
 				email: regEmail,
 				password: regPass
 			})
-			.catch(err => console.log('failed to register!'))
+			.catch(err => setError(true))
 		}
 	};
 
-	/*
-		onSubmitSignIn = () => {
-			fetch('http://localhost:3001/register', {
-				method: 'post',
-				headers: {'Content-Type': 'application/json'},
-				body: JSON.stringify({
-					email: this.state.email,
-					password: this.state.password,
-					name: this.state.name
-				})
-			})
-				.then(response => response.json())
-				.then(user => {
-					if (user.id){
-						this.props.loadUser(user);
-						this.props.onRouteChange('home');
-					} else {
-						alert ('not recognized');
-					}
-			})
+	hasError = () => {
+		if (error) {
+				return (
+				<CardSection style={styles.errorContainer}>
+					<Text style={styles.errorText}> Invalid Form Submission </Text>
+				</CardSection>
+			);
 		}
-	*/
+	};
 
 	return (
 		<View>
@@ -108,8 +96,20 @@ const RegisterForm = () => {
 			<CardSection>
 				<Button onPress={() => Actions.pop()}> Already a user? </Button>
 			</CardSection>
+
+			{hasError()}
+
 		</View>
 	);
 };
+
+const styles = {
+	errorContainer: {
+		justifyContent: 'center'
+	},
+	errorText: {
+		color: 'red'
+	}
+}
 
 export default RegisterForm;
