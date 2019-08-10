@@ -38,8 +38,8 @@ const RegisterForm = () => {
 				password: regPass
 			})
 			.then(res => {
-				Actions.pop();
 				isLoading(false);
+				Actions.pop();
 			})
 			.catch(err => {
 				setError(true);
