@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 
 import NavBar from './NavBar';
 
 const Home = (props) => {
-	console.log(props.user);
 	return (
 		<View style={styles.containerStyle}>
 			<ScrollView style={styles.scrollViewStyle}>
-				<Text> Hello World! </Text>
+				<Text> {props.user} </Text>
 			</ScrollView>
-			<NavBar homeOpacity={0.7} />
+			<NavBar homeOpacity={0.7} user={props.user} />
 		</View>
 	);
 };

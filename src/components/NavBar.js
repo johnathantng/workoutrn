@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import { Actions, ActionConst } from 'react-native-router-flux';
 
 import { NavBarIcon } from './common';
 
@@ -8,17 +8,17 @@ const NavBar = (props) => {
 	return (
 		<View style={styles.navBar}>
 			<NavBarIcon 
-				onPress={() => Actions.replace('main')}
+				onPress={() => Actions.replace('main', {user: props.user})}
 				image={require('../assets/icons/home.png')}
 				opacityLevel={props.homeOpacity}
 			/>
 			<NavBarIcon
-				onPress={() => Actions.second()}
+				onPress={() => Actions.second({user: props.user})}
 				image={require('../assets/icons/event.png')}
 				opacityLevel={props.eventOpacity}
 			/>
 			<NavBarIcon
-				onPress={() => Actions.third()}
+				onPress={() => Actions.third({user: props.user})}
 				image={require('../assets/icons/account.png')}
 				opacityLevel={props.accountOpacity}
 			/>
