@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
 
 import NavBar from './NavBar';
+import UserContext from './LoginForm';
 
 const Event = () => {
 	return (

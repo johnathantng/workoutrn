@@ -11,8 +11,6 @@ const LoginForm = () => {
 	const [error, setError] = useState(false);
 	const [loading, isLoading] = useState(false);
 
-	const UserContext = React.createContext({});
-
 	onLoginUserChange = (text) => {
 		setLoginUser(text);
 	};
@@ -29,9 +27,8 @@ const LoginForm = () => {
 		})
 		.then(user => {
 			if (user.data.user_id) {
-				console.log(user.data);
 				isLoading(false);
-				Actions.main({type: 'reset'});
+				Actions.main({type: 'reset', user: user.data.user_id});
 			}
 		})
 		.catch(err => {
