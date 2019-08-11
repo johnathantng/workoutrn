@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import axios from 'axios';
 
-import { Card, CardSection, Spinner } from './common';
+import { Card, CardSection, ScreenSpinner, Spinner } from './common';
 import NavBar from './NavBar';
 
 const Account = (props) => {
@@ -12,37 +12,54 @@ const Account = (props) => {
 		textHeaderStyle, 
 		textStyle } = styles;
 
+	const [loading, isLoading] = useState(false);
+
+	console.log(loading);
+
 	useEffect(() => {
+		isLoading(true);
 		axios.get(`http://10.0.2.2:8685/profile/${props.user}`)
-			.then(res => console.log(res))
-	})
+			.then(res => isLoading(false))
+	}, [])
+
+	renderAccountInfo = () => {
+		if (loading) {
+			return <ScreenSpinner />
+		} else {
+			return (
+				<ScrollView style={scrollViewStyle}>
+					<Card>
+						<Text style={textHeaderStyle}> Name </Text>
+						<Text style={textStyle}> {props.user} </Text>
+					</Card>
+					<Card>
+						<Text style={textHeaderStyle}> Age </Text>
+						<Text style={textStyle}> {props.user} </Text>
+					</Card>
+					<Card>
+						<Text style={textHeaderStyle}> Height </Text>
+						<Text style={textStyle}> {props.user} </Text>
+					</Card>
+					<Card>
+						<Text style={textHeaderStyle}> Weight </Text>
+						<Text style={textStyle}> {props.user} </Text>
+					</Card>
+					<Card>
+						<Text style={textHeaderStyle}> Lifestyle </Text>
+						<Text style={textStyle}> {props.user} </Text>
+					</Card>
+				</ScrollView>
+			);
+		}
+	};
 
 	console.log(props.user)
 
 	return (
 		<View style={containerStyle}>
-			<ScrollView style={scrollViewStyle}>
-				<Card>
-					<Text style={textHeaderStyle}> Name </Text>
-					<Text style={textStyle}> {props.user} </Text>
-				</Card>
-				<Card>
-					<Text style={textHeaderStyle}> Age </Text>
-					<Text style={textStyle}> {props.user} </Text>
-				</Card>
-				<Card>
-					<Text style={textHeaderStyle}> Height </Text>
-					<Text style={textStyle}> {props.user} </Text>
-				</Card>
-				<Card>
-					<Text style={textHeaderStyle}> Weight </Text>
-					<Text style={textStyle}> {props.user} </Text>
-				</Card>
-				<Card>
-					<Text style={textHeaderStyle}> Lifestyle </Text>
-					<Text style={textStyle}> {props.user} </Text>
-				</Card>
-			</ScrollView>
+
+			{renderAccountInfo()}
+
 			<NavBar accountOpacity={0.7} user={props.user}/>
 		</View>
 	);

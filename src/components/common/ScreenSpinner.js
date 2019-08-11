@@ -11,9 +11,10 @@ const ScreenSpinner = ({ size }) => {
 
 const styles = { 
 	viewStyle: {
-		flex: 1
-	}
+		flex: 1,
+	},
 	spinnerStyle: {
+		marginTop: 10,
 		justifyContent: 'center',
 		alignItems: 'center'
 	}
