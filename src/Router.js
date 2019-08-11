@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 
 //	Import components below this
@@ -33,7 +33,8 @@ const RouterComponent = () => {
 const styles = {
 	sceneTitleText: {
 		flex: 1,
-		textAlign: 'center'
+		textAlign: 'center',
+		color: '#352e30'
 	}
 };
 
