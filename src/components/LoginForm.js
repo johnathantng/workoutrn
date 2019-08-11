@@ -29,6 +29,8 @@ const LoginForm = () => {
 			if (user.data.user_id) {
 				isLoading(false);
 				Actions.main({type: 'reset', user: user.data.user_id});
+			} else {
+				Actions.creation();
 			}
 		})
 		.catch(err => {
