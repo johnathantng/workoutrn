@@ -34,7 +34,7 @@ const styles = {
 		justifyContent: 'space-between',
 		borderTopWidth: 1,
 		borderColor: '#ddd',
-		shadowColor: '#000',
+		shadowColor: '#352e30',
 		shadowOffset: { width: 0, height: 2 },
 		shadowOpacity: 0.2,
 		paddingRight: 40,
