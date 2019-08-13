@@ -10,7 +10,7 @@ const CreationForm = () => {
 				<StrictInput 
 					label="age"
 					placeholder="enter your age"
-					maxLength={3}
+					maxLength={2}
 					keyboardType="number-pad"
 				/>
 			</CardSection>
