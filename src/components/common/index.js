@@ -1,6 +1,7 @@
 export * from './Button';
 export * from './Card';
 export * from './CardSection';
+export * from './ItemPicker';
 export * from './StrictInput';
 export * from './Input';
 export * from './Spinner';
