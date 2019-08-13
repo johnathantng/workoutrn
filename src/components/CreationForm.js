@@ -15,10 +15,20 @@ const CreationForm = () => {
 				/>
 			</CardSection>
 			<CardSection>
-
+				<StrictInput 
+					label="height"
+					placeholder="enter your height"
+					maxLength={2}
+					keyboardType="number-pad"
+				/>
 			</CardSection>
 			<CardSection>
-
+				<StrictInput 
+					label="weight"
+					placeholder="enter your weight"
+					maxLength={3}
+					keyboardType="number-pad"
+				/>
 			</CardSection>
 		</View>
 	);
