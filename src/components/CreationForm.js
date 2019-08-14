@@ -5,10 +5,25 @@ import { CardSection, StrictInput, Button } from './common';
 
 const CreationForm = () => {
 	const [genderValue, setGenderValue] = useState(genderValue);
+	const [userAge, setUserAge] = useState('');
+	const [userHeight, setUserHeight] = useState('');
+	const [userWeight, setUserWeight] = useState('');
 	const [error, setError] = useState(false);
 
 	onGenderValueChange = (genderValue) => {
 		setGenderValue(genderValue)
+	}
+
+	onUserAgeChange = (text) => {
+		setUserAge(text);
+	}
+	
+	onUserHeightChange = (text) => {
+		setUserHeight(text);
+	}
+
+	onUserWeightChange = (text) => {
+		setUserWeight(text);
 	}
 
 	hasError = () => {
@@ -47,6 +62,8 @@ const CreationForm = () => {
 				<StrictInput 
 					label="Age"
 					placeholder="Enter Your Age"
+					value={userAge}
+					onChangeText={(text) => onUserAgeChange(text)}
 					maxLength={2}
 					keyboardType="number-pad"
 				/>
@@ -55,6 +72,8 @@ const CreationForm = () => {
 				<StrictInput 
 					label="Height"
 					placeholder="Enter Your Height"
+					value={userHeight}
+					onChangeText={(text) => onUserHeightChange(text)}
 					maxLength={2}
 					keyboardType="number-pad"
 					endLabel="cm"
@@ -64,6 +83,8 @@ const CreationForm = () => {
 				<StrictInput 
 					label="Weight"
 					placeholder="Enter Your Weight"
+					value={userWeight}
+					onChangeText={(text) => onUserWeightChange(text)}
 					maxLength={3}
 					keyboardType="number-pad"
 					endLabel="kg"
