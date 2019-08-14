@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Picker } from 'react-native';
+import axios from 'axios';
 
 import { CardSection, StrictInput, Button } from './common';
 
-const CreationForm = () => {
+const CreationForm = (props) => {
 	const [genderValue, setGenderValue] = useState(genderValue);
 	const [userAge, setUserAge] = useState('');
 	const [userHeight, setUserHeight] = useState('');
@@ -37,7 +38,14 @@ const CreationForm = () => {
 	};
 
 	onCreationPress = () => {
-
+		axios.post(`http://10.0.2.2:8685/profile/3`, {
+			gender: genderValue,
+			age: userAge,
+			height: userHeight,
+			weight: userWeight
+		})
+		.then(user => console.log(user))
+		.catch(err => console.log(err))
 	}
 
 	return (
@@ -78,7 +86,7 @@ const CreationForm = () => {
 					placeholder="Enter Your Height"
 					value={userHeight}
 					onChangeText={(text) => onUserHeightChange(text)}
-					maxLength={2}
+					maxLength={3}
 					keyboardType="number-pad"
 					endLabel="cm"
 				/>
@@ -95,7 +103,7 @@ const CreationForm = () => {
 				/>
 			</CardSection>
 			<CardSection>
-				<Button> Create Account </Button>
+				<Button onPress={() => onCreationPress()}> Create Account </Button>
 			</CardSection>
 
 			{hasError()}
