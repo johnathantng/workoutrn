@@ -98,6 +98,12 @@ const styles = {
 		width: 100,
 		paddingLeft: 5,
 		paddingRight: 5
+	},	
+	errorContainer: {
+		justifyContent: 'center'
+	},
+	errorText: {
+		color: 'red'
 	}
 };
 
