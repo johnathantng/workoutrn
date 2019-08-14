@@ -4,11 +4,22 @@ import { View, Text, TextInput, Picker } from 'react-native';
 import { CardSection, StrictInput, Button } from './common';
 
 const CreationForm = () => {
-	const [genderValue, setGenderValue] = useState(genderValue)
+	const [genderValue, setGenderValue] = useState(genderValue);
+	const [error, setError] = useState(false);
 
 	onGenderValueChange = (genderValue) => {
 		setGenderValue(genderValue)
 	}
+
+	hasError = () => {
+		if (error) {
+				return (
+				<CardSection style={styles.errorContainer}>
+					<Text style={styles.errorText}> Please Fill Out The Form With The Correct Information </Text>
+				</CardSection>
+			);
+		}
+	};
 
 	return (
 		<View>
@@ -61,6 +72,9 @@ const CreationForm = () => {
 			<CardSection>
 				<Button> Create Account </Button>
 			</CardSection>
+
+			{hasError()}
+
 		</View>
 	);
 };
