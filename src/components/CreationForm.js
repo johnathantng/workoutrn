@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Picker } from 'react-native';
 
-import { CardSection, StrictInput } from './common';
+import { CardSection, StrictInput, Button } from './common';
 
 const CreationForm = () => {
 	const [genderValue, setGenderValue] = useState(genderValue)
@@ -10,7 +10,6 @@ const CreationForm = () => {
 		setGenderValue(genderValue)
 	}
 
-	console.log(genderValue);
 	return (
 		<View>
 			<CardSection>
@@ -35,37 +34,42 @@ const CreationForm = () => {
 			</CardSection>
 			<CardSection>
 				<StrictInput 
-					label="height"
-					placeholder="enter your height"
+					label="Age"
+					placeholder="Enter Your Age"
 					maxLength={2}
 					keyboardType="number-pad"
 				/>
 			</CardSection>
 			<CardSection>
 				<StrictInput 
-					label="weight"
-					placeholder="enter your weight"
+					label="Height"
+					placeholder="Enter Your Height"
+					maxLength={2}
+					keyboardType="number-pad"
+					endLabel="cm"
+				/>
+			</CardSection>
+			<CardSection>
+				<StrictInput 
+					label="Weight"
+					placeholder="Enter Your Weight"
 					maxLength={3}
 					keyboardType="number-pad"
+					endLabel="kg"
 				/>
+			</CardSection>
+			<CardSection>
+				<Button> Create Account </Button>
 			</CardSection>
 		</View>
 	);
 };
 
 const styles = {
-	inputStyle: {
-		color: '#000',
-		paddingRight: 5,
-		paddingLeft: 5,
-		fontSize: 18,
-		lineHeight: 23,
-		flex: 2
-	},
 	labelStyle: {
 		fontSize: 18,
 		paddingLeft: 20,
-		flex: 1,
+		flex: 2,
 		color: '#352e30'
 	},
 	containerStyle: {
@@ -75,11 +79,11 @@ const styles = {
 		alignItems: 'center'
 	},
 	pickerStyle: {
-		flex: 2,
+		flex: 4,
 		height: 40,
 		width: 100,
-		paddingRight: 5,
-		paddingLeft: 5
+		paddingLeft: 5,
+		paddingRight: 5
 	}
 };
 

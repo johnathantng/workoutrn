@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, TextInput } from 'react-native';
 
-const StrictInput = ({ label, value, onChangeText, placeholder, secureTextEntry, maxLength, keyboardType }) => {
-	const { inputStyle, labelStyle, containerStyle } = styles;
+const StrictInput = ({ label, endLabel, value, onChangeText, placeholder, secureTextEntry, maxLength, keyboardType }) => {
+	const { inputStyle, labelStyle, containerStyle, endLabelStyle } = styles;
 
 	return (
 		<View style={containerStyle}>
@@ -17,6 +17,7 @@ const StrictInput = ({ label, value, onChangeText, placeholder, secureTextEntry,
 				value={value}
 				onChangeText={onChangeText}
 			/>
+			<Text style={endLabelStyle}>{endLabel}</Text>
 		</View>
 	);
 };
@@ -28,13 +29,20 @@ const styles = {
 		paddingLeft: 5,
 		fontSize: 18,
 		lineHeight: 23,
-		flex: 2
+		flex: 3
 	},
 	labelStyle: {
 		fontSize: 18,
 		paddingLeft: 20,
-		flex: 1,
+		flex: 2,
 		color: '#352e30'
+	},
+	endLabelStyle: {
+		fontSize: 18,
+		paddingLeft: 20,
+		flex: 1,
+		color: '#352e30',
+		opacity: 0.5
 	},
 	containerStyle: {
 		height: 40,
