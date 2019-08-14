@@ -1,18 +1,37 @@
-import React from 'react';
-import { View, TextInput } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TextInput, Picker } from 'react-native';
 
 import { CardSection, StrictInput } from './common';
 
 const CreationForm = () => {
+	const [genderValue, setGenderValue] = useState(genderValue)
+
+	onGenderValueChange = (genderValue) => {
+		setGenderValue(genderValue)
+	}
+
+	console.log(genderValue);
 	return (
 		<View>
 			<CardSection>
-				<StrictInput 
-					label="age"
-					placeholder="enter your age"
-					maxLength={2}
-					keyboardType="number-pad"
-				/>
+				<View style={styles.containerStyle}>
+				<Text style={styles.labelStyle}>Gender</Text>
+					<Picker
+					  selectedValue={genderValue}
+					  style={styles.pickerStyle}
+					  onValueChange={(genderValue) => {
+					  	if (genderValue != "0") {
+								setGenderValue(genderValue)
+					  	}
+					  }
+				  }>
+				  	<Picker.Item label="Select Your Gender" value="0" />
+					  <Picker.Item label="Male" value="Male" />
+					  <Picker.Item label="Female" value="Female" />
+					  <Picker.Item label="Transgender" value="Transgender" />
+					  <Picker.Item label="Non-binary" value="Non-binary" />
+					</Picker>
+				</View>
 			</CardSection>
 			<CardSection>
 				<StrictInput 
@@ -54,6 +73,13 @@ const styles = {
 		flex: 1,
 		flexDirection: 'row',
 		alignItems: 'center'
+	},
+	pickerStyle: {
+		flex: 2,
+		height: 40,
+		width: 100,
+		paddingRight: 5,
+		paddingLeft: 5
 	}
 };
 
