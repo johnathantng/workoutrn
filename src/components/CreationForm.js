@@ -36,6 +36,10 @@ const CreationForm = () => {
 		}
 	};
 
+	onCreationPress = () => {
+
+	}
+
 	return (
 		<View>
 			<CardSection>

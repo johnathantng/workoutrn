@@ -23,7 +23,7 @@ const LoginForm = () => {
 		isLoading(true);
 		axios.post('http://10.0.2.2:8685/login', {
 			username: loginUser,
-			password: loginPass
+			hash: loginPass
 		})
 		.then(user => {
 			if (user.data.user_id) {

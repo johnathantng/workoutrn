@@ -35,7 +35,7 @@ const RegisterForm = () => {
 			axios.post('http://10.0.2.2:8685/register', {
 				username: regUser,
 				email: regEmail,
-				password: regPass
+				hash: regPass
 			})
 			.then(res => {
 				isLoading(false);
