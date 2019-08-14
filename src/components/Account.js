@@ -12,6 +12,10 @@ const Account = (props) => {
 		textHeaderStyle, 
 		textStyle } = styles;
 
+	const [userName, setUserName] = useState('');
+	const [userAge, setUserAge] = useState('');
+	const [userHeight, setUserHeight] = useState('');
+	const [userWeight, setUserWeight] = useState('');
 	const [loading, isLoading] = useState(false);
 
 	console.log(loading);
@@ -19,7 +23,13 @@ const Account = (props) => {
 	useEffect(() => {
 		isLoading(true);
 		axios.get(`http://10.0.2.2:8685/profile/${props.user}`)
-			.then(res => isLoading(false))
+			.then(user => {
+				setUserName(user.data.username);
+				setUserAge(user.data.age);
+				setUserHeight(user.data.height + " cm");
+				setUserWeight(user.data.weight + " kg");
+				isLoading(false);
+			})
 	}, [])
 
 	renderAccountInfo = () => {
@@ -30,23 +40,19 @@ const Account = (props) => {
 				<ScrollView style={scrollViewStyle}>
 					<Card>
 						<Text style={textHeaderStyle}> Name </Text>
-						<Text style={textStyle}> {props.user} </Text>
+						<Text style={textStyle}> {userName} </Text>
 					</Card>
 					<Card>
 						<Text style={textHeaderStyle}> Age </Text>
-						<Text style={textStyle}> {props.user} </Text>
+						<Text style={textStyle}> {userAge} </Text>
 					</Card>
 					<Card>
 						<Text style={textHeaderStyle}> Height </Text>
-						<Text style={textStyle}> {props.user} </Text>
+						<Text style={textStyle}> {userHeight} </Text>
 					</Card>
 					<Card>
 						<Text style={textHeaderStyle}> Weight </Text>
-						<Text style={textStyle}> {props.user} </Text>
-					</Card>
-					<Card>
-						<Text style={textHeaderStyle}> Lifestyle </Text>
-						<Text style={textStyle}> {props.user} </Text>
+						<Text style={textStyle}> {userWeight} </Text>
 					</Card>
 				</ScrollView>
 			);
