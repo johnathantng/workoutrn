@@ -14,9 +14,11 @@ const RouterComponent = () => {
 		<Router>
 			<Scene key="root" hideNavBar>
 				<Scene key="auth">
-					<Scene key="login" component={LoginForm} title="Please Login" titleStyle={styles.sceneTitleText} />
+					<Scene key="login" component={LoginForm} title="Please Login" titleStyle={styles.sceneTitleText} initial />
 					<Scene key="register" component={RegisterForm} title="Register a User" titleStyle={styles.sceneTitleText} />
-					<Scene key="creation" component={CreationForm} title="Account Creation" titleStyle={styles.sceneTitleText} initial />
+				</Scene>
+				<Scene key="creation">
+					<Scene key="info" component={CreationForm} title="Account Creation" titleStyle={styles.sceneTitleText} />
 				</Scene>
 				<Scene key="main">
 					<Scene key="home" component={Home} title="Workout" titleStyle={styles.sceneTitleText} initial />

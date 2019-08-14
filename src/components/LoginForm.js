@@ -26,11 +26,12 @@ const LoginForm = () => {
 			hash: loginPass
 		})
 		.then(user => {
-			if (user.data.user_id) {
+			if (user.data.age == null) {
 				isLoading(false);
-				Actions.main({type: 'reset', user: user.data.user_id});
+				Actions.creation({type: 'reset', user: user.data.id});
 			} else {
-				Actions.creation();
+				isLoading(false);
+				Actions.main({type: 'reset', user: user.data.id});
 			}
 		})
 		.catch(err => {
