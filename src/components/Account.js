@@ -18,8 +18,6 @@ const Account = (props) => {
 	const [userWeight, setUserWeight] = useState('');
 	const [loading, isLoading] = useState(false);
 
-	console.log(loading);
-
 	useEffect(() => {
 		isLoading(true);
 		axios.get(`http://10.0.2.2:8685/profile/${props.user}`)
@@ -58,8 +56,6 @@ const Account = (props) => {
 			);
 		}
 	};
-
-	console.log(props.user)
 
 	return (
 		<View style={containerStyle}>
