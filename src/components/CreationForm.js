@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Picker } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
 
-import { CardSection, StrictInput, Button } from './common';
+import { CardSection, StrictInput, Spinner, Button } from './common';
 
 const CreationForm = (props) => {
 	const [genderValue, setGenderValue] = useState(genderValue);
 	const [userAge, setUserAge] = useState('');
 	const [userHeight, setUserHeight] = useState('');
 	const [userWeight, setUserWeight] = useState('');
+	const [loading, isLoading] = useState(false);
 	const [error, setError] = useState(false);
 
 	onGenderValueChange = (genderValue) => {
@@ -37,15 +39,38 @@ const CreationForm = (props) => {
 		}
 	};
 
-	onCreationPress = () => {
-		axios.post(`http://10.0.2.2:8685/profile/3`, {
+	renderCreateButton = () => {
+		if (loading) {
+			return (
+				<CardSection>
+					<Spinner />
+				</CardSection>
+			);
+		} else {
+			return (
+				<CardSection>
+					<Button onPress={() => onCreatePress()}> Create Account </Button>
+				</CardSection>
+			);
+		}
+	};
+
+	onCreatePress = () => {
+		isLoading(true);
+		axios.post(`http://10.0.2.2:8685/profile/${props.user}`, {
 			gender: genderValue,
 			age: userAge,
 			height: userHeight,
 			weight: userWeight
 		})
-		.then(user => console.log(user))
-		.catch(err => console.log(err))
+		.then(() => {
+			isLoading(false);
+			Actions.main({type: 'reset', user: props.user});
+		})
+		.catch(err => {
+			setError(true);
+			isLoading(false);
+		})
 	}
 
 	return (
@@ -102,9 +127,8 @@ const CreationForm = (props) => {
 					endLabel="kg"
 				/>
 			</CardSection>
-			<CardSection>
-				<Button onPress={() => onCreationPress()}> Create Account </Button>
-			</CardSection>
+
+			{renderCreateButton()}
 
 			{hasError()}
 
