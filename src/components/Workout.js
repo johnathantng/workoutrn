@@ -3,43 +3,31 @@ import { View, Text, TextInput, Picker } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
 
-import { CardSection, StrictInput, Spinner, Button } from './common';
+import { CardSection, StrictInput, Input, Spinner, Button } from './common';
 
 const Workout = (props) => {
-	const [genderValue, setGenderValue] = useState(genderValue);
-	const [userAge, setUserAge] = useState('');
+	const [workoutValue, setWorkoutValue] = useState('');
+	const [typeValue, setTypeValue] = useState({});
 	const [userHeight, setUserHeight] = useState('');
 	const [userWeight, setUserWeight] = useState('');
 	const [loading, isLoading] = useState(false);
 	const [error, setError] = useState(false);
 
-	onGenderValueChange = (genderValue) => {
-		setGenderValue(genderValue)
-	}
-
-	onUserAgeChange = (text) => {
-		setUserAge(text);
-	}
-	
-	onUserHeightChange = (text) => {
-		setUserHeight(text);
-	}
-
-	onUserWeightChange = (text) => {
-		setUserWeight(text);
+	onWorkoutValueChange = (text) => {
+		setWorkoutValue(text)
 	}
 
 	hasError = () => {
 		if (error) {
 				return (
 				<CardSection style={styles.errorContainer}>
-					<Text style={styles.errorText}> Please Fill Out The Form With The Correct Information </Text>
+					<Text style={styles.errorText}> Something Went Wrong </Text>
 				</CardSection>
 			);
 		}
 	};
 
-	renderCreateButton = () => {
+	renderConfirmButton = () => {
 		if (loading) {
 			return (
 				<CardSection>
@@ -49,13 +37,13 @@ const Workout = (props) => {
 		} else {
 			return (
 				<CardSection>
-					<Button onPress={() => onCreatePress()}> Create Account </Button>
+					<Button onPress={() => onConfirmPress()}> Create Account </Button>
 				</CardSection>
 			);
 		}
 	};
 
-	onCreatePress = () => {
+	onConfirmPress = () => {
 		isLoading(true);
 		axios.post(`http://10.0.2.2:8685/profile/${props.user}`, {
 			gender: genderValue,
@@ -76,59 +64,33 @@ const Workout = (props) => {
 	return (
 		<View>
 			<CardSection>
+				<Input 
+					label="Workout"
+					placeholder="Exercise Name"
+					value={workoutValue}
+					onChangeText={(text) => onWorkoutValueChange(text)}
+				/>
+			</CardSection>
+			<CardSection>
 				<View style={styles.containerStyle}>
-				<Text style={styles.labelStyle}>Gender</Text>
+				<Text style={styles.labelStyle}>Type</Text>
 					<Picker
-					  selectedValue={genderValue}
+					  selectedValue={typeValue}
 					  style={styles.pickerStyle}
-					  onValueChange={(genderValue) => {
-					  	if (genderValue != "0") {
-								setGenderValue(genderValue)
+					  onValueChange={(typeValue) => {
+					  	if (typeValue != "0") {
+								setTypeValue(typeValue)
 					  	}
 					  }
 				  }>
-				  	<Picker.Item label="Select Your Gender" value="0" />
-					  <Picker.Item label="Male" value="Male" />
-					  <Picker.Item label="Female" value="Female" />
-					  <Picker.Item label="Transgender" value="Transgender" />
-					  <Picker.Item label="Non-binary" value="Non-binary" />
+				  	<Picker.Item label="Workout Type" value="0" />
+					  <Picker.Item label="Stength" value="Strength" />
+					  <Picker.Item label="Cardio" value="Cardio" />
 					</Picker>
 				</View>
 			</CardSection>
-			<CardSection>
-				<StrictInput 
-					label="Age"
-					placeholder="Enter Your Age"
-					value={userAge}
-					onChangeText={(text) => onUserAgeChange(text)}
-					maxLength={2}
-					keyboardType="number-pad"
-				/>
-			</CardSection>
-			<CardSection>
-				<StrictInput 
-					label="Height"
-					placeholder="Enter Your Height"
-					value={userHeight}
-					onChangeText={(text) => onUserHeightChange(text)}
-					maxLength={3}
-					keyboardType="number-pad"
-					endLabel="cm"
-				/>
-			</CardSection>
-			<CardSection>
-				<StrictInput 
-					label="Weight"
-					placeholder="Enter Your Weight"
-					value={userWeight}
-					onChangeText={(text) => onUserWeightChange(text)}
-					maxLength={3}
-					keyboardType="number-pad"
-					endLabel="kg"
-				/>
-			</CardSection>
 
-			{renderCreateButton()}
+			{renderConfirmButton()}
 
 			{hasError()}
 

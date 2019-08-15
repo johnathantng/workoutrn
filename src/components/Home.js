@@ -12,7 +12,7 @@ const Home = (props) => {
 				<Text> {props.user} </Text>
 			</ScrollView>
 			<CardSection>
-				<Button onPress={() => Actions.workout()}> Add Workout </Button>
+				<Button onPress={() => Actions.workout({user: props.user})}> Add Workout </Button>
 			</CardSection>
 			<NavBar homeOpacity={0.7} user={props.user} />
 		</View>

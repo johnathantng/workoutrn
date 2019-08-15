@@ -13,10 +13,6 @@ const CreationForm = (props) => {
 	const [loading, isLoading] = useState(false);
 	const [error, setError] = useState(false);
 
-	onGenderValueChange = (genderValue) => {
-		setGenderValue(genderValue)
-	}
-
 	onUserAgeChange = (text) => {
 		setUserAge(text);
 	}
