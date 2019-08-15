@@ -45,6 +45,9 @@ const RegisterForm = () => {
 				setError(true);
 				isLoading(false);
 			})
+		} else {
+			setError(true);
+			isLoading(false);
 		}
 	};
 
