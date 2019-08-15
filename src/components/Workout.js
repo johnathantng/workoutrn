@@ -37,7 +37,7 @@ const Workout = (props) => {
 		} else {
 			return (
 				<CardSection>
-					<Button onPress={() => onConfirmPress()}> Create Account </Button>
+					<Button onPress={() => onConfirmPress()}> Add Workout </Button>
 				</CardSection>
 			);
 		}
