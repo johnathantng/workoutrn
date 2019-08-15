@@ -8,13 +8,21 @@ import { CardSection, StrictInput, Input, Spinner, Button } from './common';
 const Workout = (props) => {
 	const [workoutValue, setWorkoutValue] = useState('');
 	const [typeValue, setTypeValue] = useState({});
-	const [userHeight, setUserHeight] = useState('');
-	const [userWeight, setUserWeight] = useState('');
+	const [targetReps, setTargetReps] = useState('');
+	const [targetSets, setTargetSets] = useState('');
 	const [loading, isLoading] = useState(false);
 	const [error, setError] = useState(false);
 
 	onWorkoutValueChange = (text) => {
-		setWorkoutValue(text)
+		setWorkoutValue(text);
+	}
+
+	onRepsValueChange = (text) => {
+		setTargetReps(text);
+	}
+
+	onSetsValueChange = (text) => {
+		setTargetSets(text);
 	}
 
 	hasError = () => {
@@ -65,7 +73,7 @@ const Workout = (props) => {
 		<View>
 			<CardSection>
 				<Input 
-					label="Workout"
+					label="Workout:"
 					placeholder="Exercise Name"
 					value={workoutValue}
 					onChangeText={(text) => onWorkoutValueChange(text)}
@@ -73,7 +81,7 @@ const Workout = (props) => {
 			</CardSection>
 			<CardSection>
 				<View style={styles.containerStyle}>
-				<Text style={styles.labelStyle}>Type</Text>
+				<Text style={styles.labelStyle}>Type:</Text>
 					<Picker
 					  selectedValue={typeValue}
 					  style={styles.pickerStyle}
@@ -88,6 +96,22 @@ const Workout = (props) => {
 					  <Picker.Item label="Cardio" value="Cardio" />
 					</Picker>
 				</View>
+			</CardSection>
+			<CardSection>
+				<Input 
+					label="Target Reps:"
+					placeholder="Amount of Reps"
+					value={targetReps}
+					onChangeText={(text) => onRepsValueChange(text)}
+				/>
+			</CardSection>
+			<CardSection>
+				<Input 
+					label="Target Sets:"
+					placeholder="Amount of Sets"
+					value={targetSets}
+					onChangeText={(text) => onSetsValueChange(text)}
+				/>
 			</CardSection>
 
 			{renderConfirmButton()}
