@@ -92,7 +92,7 @@ const Workout = (props) => {
 					  }
 				  }>
 				  	<Picker.Item label="Workout Type" value="0" />
-					  <Picker.Item label="Stength" value="Strength" />
+					  <Picker.Item label="Strength" value="Strength" />
 					  <Picker.Item label="Cardio" value="Cardio" />
 					</Picker>
 				</View>
