@@ -53,15 +53,17 @@ const Workout = (props) => {
 
 	onConfirmPress = () => {
 		isLoading(true);
-		axios.post(`http://10.0.2.2:8685/profile/${props.user}`, {
-			gender: genderValue,
-			age: userAge,
-			height: userHeight,
-			weight: userWeight
+		axios.post(`http://10.0.2.2:8685/profile/${props.user}/workouts/${workoutValue}`, {
+			id: props.user,
+			userName: props.userName,
+			workoutName: workoutValue,
+			workoutType: typeValue,
+			workoutReps: targetReps,
+			workoutSets: targetSets
 		})
 		.then(() => {
 			isLoading(false);
-			Actions.main({type: 'reset', user: props.user});
+			Actions.pop();
 		})
 		.catch(err => {
 			setError(true);
