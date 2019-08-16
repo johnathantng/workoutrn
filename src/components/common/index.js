@@ -1,4 +1,5 @@
 export * from './Button';
+export * from './WorkoutCard';
 export * from './Card';
 export * from './CardSection';
 export * from './StrictInput';

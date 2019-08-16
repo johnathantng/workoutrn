@@ -3,50 +3,25 @@ import { View, Text, ScrollView } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
 
+import WorkoutList from './WorkoutList';
 import NavBar from './NavBar';
 import { CardSection, Button, ScreenSpinner } from './common';
 
 const Home = (props) => {
 	const [userName, setUserName] = useState('');
-	const [loading, isLoading] = useState(false);
 
 	useEffect(() => {
-		isLoading(true);
 		axios.get(`http://10.0.2.2:8685/profile/${props.user}`)
 			.then(user => {
 				setUserName(user.data.username);
-				isLoading(false);
 			})
 			.catch(err => res.json('something went wrong'))
-		axios.get(`http://10.0.2.2:8685/profile/${props.user}/workouts`)
-			.then(res => {
-				console.log(res.data.length);
-				for (i = 0; i < res.data.length; i++) {
-					console.log(res.data[i]);
-					<Card>
-						<Text style={textHeaderStyle}> Name </Text>
-						<Text style={textStyle}> {res.data[i].} </Text>
-					</Card>
-				}
-			})
 	}, [])
-
-	renderHomeInfo = () => {
-		if (loading) {
-			return <ScreenSpinner />;
-		} else {
-			return (
-				<ScrollView style={styles.scrollViewStyle}>
-					<Text> {props.user} </Text>
-				</ScrollView>
-			);
-		}
-	};
 
 	return (
 		<View style={styles.containerStyle}>
 
-			{renderHomeInfo()}
+			<WorkoutList user={props.user}/>
 
 			<CardSection>
 				<Button onPress={() => Actions.workout({user: props.user, userName: userName})}> Add Workout </Button>
