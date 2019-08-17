@@ -8,7 +8,7 @@ const NavBar = (props) => {
 	return (
 		<View style={styles.navBar}>
 			<NavBarIcon 
-				onPress={() => Actions.replace('main', {user: props.user})}
+				onPress={() => Actions.main({type: 'reset', user: props.user})}
 				image={require('../assets/icons/home.png')}
 				opacityLevel={props.homeOpacity}
 			/>

@@ -9,11 +9,11 @@ const WorkoutCard = ({ workoutName, targetReps, targetSets }) => {
 
 			<View style={subCategoriesStyle}>
 				<Text style={textStyle}> Current Reps: 0 </Text>
-				<Text style={textStyle}> Target Reps: {targetReps} </Text>
+				<Text style={textStyle}> Current Sets: 0 </Text>
 			</View>
 
 			<View style={subCategoriesStyle}>
-				<Text style={textStyle}> Current Sets: 0 </Text>
+				<Text style={textStyle}> Target Reps: {targetReps} </Text>
 				<Text style={textStyle}> Target Sets: {targetSets} </Text>
 			</View>
 

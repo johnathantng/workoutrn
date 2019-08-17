@@ -63,7 +63,7 @@ const Workout = (props) => {
 		})
 		.then(() => {
 			isLoading(false);
-			Actions.pop();
+			Actions.main({type: 'reset', user: props.user});
 		})
 		.catch(err => {
 			setError(true);
