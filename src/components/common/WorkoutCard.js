@@ -1,23 +1,25 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
-const WorkoutCard = ({ workoutName, targetReps, targetSets }) => {
+const WorkoutCard = ({ onPress, workoutName, targetReps, targetSets }) => {
 	const { containerStyle, subCategoriesStyle, textHeaderStyle, textStyle } = styles;
 	return (
-		<View style={containerStyle}>
-			<Text style={textHeaderStyle}> {workoutName} </Text>
+		<TouchableOpacity onPress={onPress}>
+			<View style={containerStyle}>
+				<Text style={textHeaderStyle}> {workoutName} </Text>
 
-			<View style={subCategoriesStyle}>
-				<Text style={textStyle}> Current Reps: 0 </Text>
-				<Text style={textStyle}> Current Sets: 0 </Text>
+				<View style={subCategoriesStyle}>
+					<Text style={textStyle}> Current Reps: 0 </Text>
+					<Text style={textStyle}> Current Sets: 0 </Text>
+				</View>
+
+				<View style={subCategoriesStyle}>
+					<Text style={textStyle}> Target Reps: {targetReps} </Text>
+					<Text style={textStyle}> Target Sets: {targetSets} </Text>
+				</View>
+
 			</View>
-
-			<View style={subCategoriesStyle}>
-				<Text style={textStyle}> Target Reps: {targetReps} </Text>
-				<Text style={textStyle}> Target Sets: {targetSets} </Text>
-			</View>
-
-		</View>
+		</TouchableOpacity>
 	);
 };
 

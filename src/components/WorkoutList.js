@@ -15,7 +15,7 @@ const WorkoutList = (props) => {
 				setWorkouts(res.data);
 				isLoading(false);
 			})
-			.catch(err => console.log(err))
+			.catch(err => isLoading(false));
 	}, [])
 
 	renderWorkoutList = () => {

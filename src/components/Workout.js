@@ -104,6 +104,7 @@ const Workout = (props) => {
 					label="Target Reps:"
 					placeholder="Amount of Reps"
 					value={targetReps}
+					maxLength={3}
 					onChangeText={(text) => onRepsValueChange(text)}
 				/>
 			</CardSection>
@@ -112,6 +113,7 @@ const Workout = (props) => {
 					label="Target Sets:"
 					placeholder="Amount of Sets"
 					value={targetSets}
+					maxLength={3}
 					onChangeText={(text) => onSetsValueChange(text)}
 				/>
 			</CardSection>
