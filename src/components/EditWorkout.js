@@ -53,9 +53,7 @@ const EditWorkout = (props) => {
 
 	onUpdatePress = () => {
 		isLoading(true);
-		axios.post(`http://10.0.2.2:8685/profile/${props.user}/workouts/${workoutValue}`, {
-			id: props.user,
-			userName: props.userName,
+		axios.put(`http://10.0.2.2:8685/profile/${props.user}/workouts/${props.workout_id}`, {
 			workoutName: workoutValue,
 			workoutType: typeValue,
 			workoutReps: targetReps,
