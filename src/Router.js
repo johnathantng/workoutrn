@@ -24,6 +24,7 @@ const RouterComponent = () => {
 				<Scene key="main">
 					<Scene key="home" component={Home} title="Workout" titleStyle={styles.sceneTitleText} initial />
 					<Scene key="workout" component={Workout} title="Add a Workout" titleStyle={styles.sceneTitleText} />
+					<Scene key="edit" component={EditWorkout} title="Edit Workout" titleStyle={styles.sceneTitleText} />
 				</Scene>
 				<Scene key="second">
 					<Scene key="event" component={Event} title="Calendar" titleStyle={styles.sceneTitleText} initial />
