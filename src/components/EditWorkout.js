@@ -6,10 +6,10 @@ import axios from 'axios';
 import { CardSection, StrictInput, Input, Spinner, Button } from './common';
 
 const EditWorkout = (props) => {
-	const [workoutValue, setWorkoutValue] = useState('');
-	const [typeValue, setTypeValue] = useState({});
-	const [targetReps, setTargetReps] = useState('');
-	const [targetSets, setTargetSets] = useState('');
+	const [workoutValue, setWorkoutValue] = useState(props.workoutName);
+	const [typeValue, setTypeValue] = useState(props.workoutType);
+	const [targetReps, setTargetReps] = useState(`${props.targetReps}`);
+	const [targetSets, setTargetSets] = useState(`${props.targetSets}`);
 	const [loading, isLoading] = useState(false);
 	const [error, setError] = useState(false);
 

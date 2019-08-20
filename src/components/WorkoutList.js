@@ -13,7 +13,6 @@ const WorkoutList = (props) => {
 		isLoading(true);
 		axios.get(`http://10.0.2.2:8685/profile/${props.user}/workouts`)
 			.then(res => {
-				console.log(res.data);
 				setWorkouts(res.data);
 				isLoading(false);
 			})
@@ -31,10 +30,12 @@ const WorkoutList = (props) => {
 									targetReps={data.target_reps}
 									targetSets={data.target_sets}
 									onPress={() => Actions.edit({
+										user: props.user,
 										workout: data.workout_id, 
 										workoutName: data.workout,
-										targetReps: data.targetReps,
-										targetSets: data.targetSets
+										workoutType: data.type,
+										targetReps: data.target_reps,
+										targetSets: data.target_sets
 									})}
 								/>;
 			});
