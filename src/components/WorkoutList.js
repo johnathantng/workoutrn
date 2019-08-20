@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollView, Text } from 'react-native';
 import axios from 'axios';
+import { Actions } from 'react-native-router-flux';
 
 import { WorkoutCard, ScreenSpinner } from './common';
 
@@ -28,6 +29,12 @@ const WorkoutList = (props) => {
 									workoutName={data.workout} 
 									targetReps={data.target_reps}
 									targetSets={data.target_sets}
+									onPress={() => Actions.edit({
+										workout: data.workout_id, 
+										workoutName: data.workout,
+										targetReps: data.targetReps,
+										targetSets: data.targetSets
+									})}
 								/>;
 			});
 		}
