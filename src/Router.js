@@ -7,6 +7,7 @@ import RegisterForm from './components/RegisterForm';
 import CreationForm from './components/CreationForm';
 import Home from './components/Home';
 import Workout from './components/Workout';
+import EditWorkout from './components/EditWorkout';
 import Event from './components/Event';
 import Account from './components/Account';
 

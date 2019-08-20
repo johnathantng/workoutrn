@@ -13,6 +13,7 @@ const WorkoutList = (props) => {
 		isLoading(true);
 		axios.get(`http://10.0.2.2:8685/profile/${props.user}/workouts`)
 			.then(res => {
+				console.log(res.data);
 				setWorkouts(res.data);
 				isLoading(false);
 			})
