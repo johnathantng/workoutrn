@@ -35,6 +35,11 @@ const WorkoutList = (props) => {
 								targetSets: data.target_sets
 							})
 				}
+				const onPressDelete = () => {
+					axios.delete(`http://10.0.2.2:8685/profile/${props.user}/workouts/${data.workout_id}`)
+						.then(() => showModal(false))
+						.catch(err => console.log(err))
+				}
 				return (
 					<View key={data.workout_id}>
 						<WorkoutCard 
@@ -50,6 +55,10 @@ const WorkoutList = (props) => {
 							onPressEdit={() => {
 								showModal(false);
 								onPressEdit();
+							}}
+							onPressDelete={() => {
+								showModal(false);
+								onPressDelete();
 							}}
 						/>
 					</View>
