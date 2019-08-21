@@ -3,11 +3,12 @@ import { ScrollView, Text } from 'react-native';
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
 
-import { WorkoutCard, ScreenSpinner } from './common';
+import { WorkoutCard, ScreenSpinner, SelectModal } from './common';
 
 const WorkoutList = (props) => {
 	const [workouts, setWorkouts] = useState([]);
 	const [loading, isLoading] = useState(false);
+	const [modal, showModal] = useState(false);
 
 	useEffect(() => {
 		isLoading(true);
@@ -37,13 +38,18 @@ const WorkoutList = (props) => {
 										targetReps: data.target_reps,
 										targetSets: data.target_sets
 									})}
+									onLongPress={() => showModal(true)}
 								/>;
 			});
 		}
 	};
 
+
+
 	return (
 		<ScrollView>
+
+			<SelectModal visible={modal} />
 
 			{renderWorkoutList()}
 

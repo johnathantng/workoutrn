@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-const WorkoutCard = ({ onPress, workoutName, targetReps, targetSets }) => {
+const WorkoutCard = ({ onPress, onLongPress, workoutName, targetReps, targetSets }) => {
 	const { containerStyle, subCategoriesStyle, textHeaderStyle, textStyle } = styles;
 	return (
-		<TouchableOpacity onPress={onPress}>
+		<TouchableOpacity onPress={onPress} onLongPress={onLongPress}>
 			<View style={containerStyle}>
 				<Text style={textHeaderStyle}> {workoutName} </Text>
 
