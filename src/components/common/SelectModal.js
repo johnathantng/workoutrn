@@ -1,10 +1,12 @@
 import React from 'react';
 import { TouchableOpacity, Text, Modal } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 import { CardSection } from './CardSection';
 import { Button } from './Button';
 
-const SelectModal = ({ visible, onBackgroundPress, onPressEdit, onPressDelete }) => {
+const SelectModal = (props) => {
+	const { visible, onBackgroundPress, onPressEdit, onPressDelete } = props;
 	const { containerStyle, textStyle, cardSectionStyle } = styles;
 
 	return (
@@ -35,7 +37,7 @@ const styles = {
 		lineHeight: 40
 	},
 	containerStyle: {
-		backgroundColor: 'rgba(0, 0, 0, 0.75)',
+		backgroundColor: 'rgba(0, 0, 0, 0.35)',
 		position: 'relative',
 		flex: 1,
 		justifyContent: 'center'

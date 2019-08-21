@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, Text } from 'react-native';
+import { ScrollView, View, Text } from 'react-native';
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
 
@@ -20,34 +20,40 @@ const WorkoutList = (props) => {
 			.catch(err => isLoading(false));
 	}, [])
 
-	onPressEdit = () => {
-
-	}
-
-	onPressDelete = () => {
-
-	}
-
 	renderWorkoutList = () => {
 		if (loading) {
 			return <ScreenSpinner />
 		} else {
 			return workouts.map(data => {
-				return <WorkoutCard 
-									key={data.workout_id} 
-									workoutName={data.workout} 
-									targetReps={data.target_reps}
-									targetSets={data.target_sets}
-									onPress={() => Actions.edit({
-										user: props.user,
-										workout_id: data.workout_id, 
-										workoutName: data.workout,
-										workoutType: data.type,
-										targetReps: data.target_reps,
-										targetSets: data.target_sets
-									})}
-									onLongPress={() => showModal(true)}
-								/>;
+				const onPressEdit = () => {
+					Actions.edit({
+								user: props.user,
+								workout_id: data.workout_id, 
+								workoutName: data.workout,
+								workoutType: data.type,
+								targetReps: data.target_reps,
+								targetSets: data.target_sets
+							})
+				}
+				return (
+					<View key={data.workout_id}>
+						<WorkoutCard 
+							workoutName={data.workout} 
+							targetReps={data.target_reps}
+							targetSets={data.target_sets}
+							onPress={() => onPressEdit()}
+							onLongPress={() => showModal(true)}
+						/>
+						<SelectModal 
+							visible={modal} 
+							onBackgroundPress={() => showModal(false)} 
+							onPressEdit={() => {
+								showModal(false);
+								onPressEdit();
+							}}
+						/>
+					</View>
+					)
 			});
 		}
 	};
@@ -56,8 +62,6 @@ const WorkoutList = (props) => {
 
 	return (
 		<ScrollView>
-
-			<SelectModal visible={modal} onBackgroundPress={() => showModal(false)} />
 
 			{renderWorkoutList()}
 
