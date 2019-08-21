@@ -20,6 +20,14 @@ const WorkoutList = (props) => {
 			.catch(err => isLoading(false));
 	}, [])
 
+	onPressEdit = () => {
+
+	}
+
+	onPressDelete = () => {
+
+	}
+
 	renderWorkoutList = () => {
 		if (loading) {
 			return <ScreenSpinner />
@@ -49,7 +57,7 @@ const WorkoutList = (props) => {
 	return (
 		<ScrollView>
 
-			<SelectModal visible={modal} />
+			<SelectModal visible={modal} onBackgroundPress={() => showModal(false)} />
 
 			{renderWorkoutList()}
 
