@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, View, Text } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
 
@@ -7,6 +7,8 @@ import { WorkoutCard, ScreenSpinner, SelectModal } from './common';
 
 const WorkoutList = (props) => {
 	const [workouts, setWorkouts] = useState([]);
+	const [targetUserId, setTargetUserId] = useState('');
+	const [targetWorkout, setTargetWorkout] = useState('');
 	const [loading, isLoading] = useState(false);
 	const [modal, showModal] = useState(false);
 
@@ -20,49 +22,40 @@ const WorkoutList = (props) => {
 			.catch(err => isLoading(false));
 	}, [])
 
+	onPressDelete = () => {
+		showModal(false);
+		axios.delete(`http://10.0.2.2:8685/profile/${targetUserId}/workouts/${targetWorkout}`);
+		Actions.main({type: 'reset', user: props.user});
+	}
+
 	renderWorkoutList = () => {
 		if (loading) {
 			return <ScreenSpinner />
 		} else {
 			return workouts.map(data => {
-				const onPressEdit = () => {
-					Actions.edit({
-								user: props.user,
-								workout_id: data.workout_id, 
-								workoutName: data.workout,
-								workoutType: data.type,
-								targetReps: data.target_reps,
-								targetSets: data.target_sets
-							})
-				}
-				const onPressDelete = () => {
-					axios.delete(`http://10.0.2.2:8685/profile/${props.user}/workouts/${data.workout_id}`)
-						.then(() => showModal(false))
-						.catch(err => console.log(err))
-				}
-				return (
-					<View key={data.workout_id}>
-						<WorkoutCard 
-							workoutName={data.workout} 
-							targetReps={data.target_reps}
-							targetSets={data.target_sets}
-							onPress={() => onPressEdit()}
-							onLongPress={() => showModal(true)}
-						/>
-						<SelectModal 
-							visible={modal} 
-							onBackgroundPress={() => showModal(false)} 
-							onPressEdit={() => {
-								showModal(false);
-								onPressEdit();
-							}}
-							onPressDelete={() => {
-								showModal(false);
-								onPressDelete();
-							}}
-						/>
-					</View>
-					)
+				return <WorkoutCard 
+									key={data.workout_id} 
+									workoutName={data.workout} 
+									targetReps={data.target_reps}
+									targetSets={data.target_sets}
+									onPress={() => Actions.edit({
+										user: props.user,
+										workout_id: data.workout_id, 
+										workoutName: data.workout,
+										workoutType: data.type,
+										targetReps: data.target_reps,
+										targetSets: data.target_sets
+									})}
+									onLongPress={() => {
+										showModal(true);
+										axios.get(`http://10.0.2.2:8685/profile/${props.user}/workouts/${data.workout_id}`)
+											.then(res => {
+												setTargetUserId(res.data.id);
+												setTargetWorkout(res.data.workout_id);
+											})
+											.catch(err => console.log(err))
+									}}
+								/>;
 			});
 		}
 	};
@@ -71,6 +64,12 @@ const WorkoutList = (props) => {
 
 	return (
 		<ScrollView>
+
+			<SelectModal 
+				visible={modal} 
+				onBackgroundPress={() => showModal(false)} 
+				onPressDelete={() => onPressDelete()}
+			/>
 
 			{renderWorkoutList()}
 
