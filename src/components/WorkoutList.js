@@ -22,10 +22,25 @@ const WorkoutList = (props) => {
 			.catch(err => isLoading(false));
 	}, [])
 
+	onPressEdit = () => {
+		showModal(false);
+		axios.get(`http://10.0.2.2:8685/profile/${targetUserId}/workouts/${targetWorkout}`)
+			.then(res => Actions.edit({
+				user: props.user,
+				workout_id: res.data.workout_id,
+				workoutName: res.data.workout,
+				workoutType: res.data.type,
+				targetReps: res.data.target_reps,
+				targetSets: res.data.target_sets
+			}))
+			.catch(err => console.log(err))
+	}
+
 	onPressDelete = () => {
 		showModal(false);
-		axios.delete(`http://10.0.2.2:8685/profile/${targetUserId}/workouts/${targetWorkout}`);
-		Actions.main({type: 'reset', user: props.user});
+		axios.delete(`http://10.0.2.2:8685/profile/${targetUserId}/workouts/${targetWorkout}`)
+			.then(() => Actions.main({type: 'reset', user: props.user}))
+			.catch(err => console.log(err))
 	}
 
 	renderWorkoutList = () => {
@@ -68,6 +83,7 @@ const WorkoutList = (props) => {
 			<SelectModal 
 				visible={modal} 
 				onBackgroundPress={() => showModal(false)} 
+				onPressEdit={() => onPressEdit()}
 				onPressDelete={() => onPressDelete()}
 			/>
 
