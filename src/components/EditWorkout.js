@@ -8,7 +8,9 @@ import { CardSection, StrictInput, Input, Spinner, Button } from './common';
 const EditWorkout = (props) => {
 	const [workoutValue, setWorkoutValue] = useState(props.workoutName);
 	const [typeValue, setTypeValue] = useState(props.workoutType);
+	const [currentReps, setCurrentReps] = useState('0');
 	const [targetReps, setTargetReps] = useState(`${props.targetReps}`);
+	const [currentSets, setCurrentSets] = useState('0');
 	const [targetSets, setTargetSets] = useState(`${props.targetSets}`);
 	const [loading, isLoading] = useState(false);
 	const [error, setError] = useState(false);
@@ -17,11 +19,19 @@ const EditWorkout = (props) => {
 		setWorkoutValue(text);
 	}
 
-	onRepsValueChange = (text) => {
+	onCurrentRepsValueChange = (text) => {
+		setCurrentReps(text);
+	}
+
+	onTargetRepsValueChange = (text) => {
 		setTargetReps(text);
 	}
 
-	onSetsValueChange = (text) => {
+	onCurrentSetsValueChange = (text) => {
+		setCurrentSets(text);
+	}
+
+	onTargetSetsValueChange = (text) => {
 		setTargetSets(text);
 	}
 
@@ -99,11 +109,29 @@ const EditWorkout = (props) => {
 			</CardSection>
 			<CardSection>
 				<Input 
+					label="Current Reps:"
+					placeholder="Amount of Reps"
+					value={currentReps}
+					maxLength={3}
+					onChangeText={(text) => onCurrentRepsValueChange(text)}
+				/>
+			</CardSection>
+			<CardSection>
+				<Input 
 					label="Target Reps:"
 					placeholder="Amount of Reps"
 					value={targetReps}
 					maxLength={3}
-					onChangeText={(text) => onRepsValueChange(text)}
+					onChangeText={(text) => onTargetRepsValueChange(text)}
+				/>
+			</CardSection>
+			<CardSection>
+				<Input 
+					label="Current Sets:"
+					placeholder="Amount of Sets"
+					value={currentSets}
+					maxLength={3}
+					onChangeText={(text) => onCurrentSetsValueChange(text)}
 				/>
 			</CardSection>
 			<CardSection>
@@ -112,7 +140,7 @@ const EditWorkout = (props) => {
 					placeholder="Amount of Sets"
 					value={targetSets}
 					maxLength={3}
-					onChangeText={(text) => onSetsValueChange(text)}
+					onChangeText={(text) => onTargetSetsValueChange(text)}
 				/>
 			</CardSection>
 
