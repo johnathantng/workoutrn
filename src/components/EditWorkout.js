@@ -66,8 +66,10 @@ const EditWorkout = (props) => {
 		axios.put(`http://10.0.2.2:8685/profile/${props.user}/workouts/${props.workout_id}`, {
 			workoutName: workoutValue,
 			workoutType: typeValue,
-			workoutReps: targetReps,
-			workoutSets: targetSets
+			currentSets: currentSets,
+			currentReps: currentReps,
+			targetReps: targetReps,
+			targetSets: targetSets
 		})
 		.then(() => {
 			isLoading(false);

@@ -30,6 +30,8 @@ const WorkoutList = (props) => {
 				workout_id: res.data.workout_id,
 				workoutName: res.data.workout,
 				workoutType: res.data.type,
+				currentReps: res.data.current_reps,
+				currentSets: res.data.current_sets,
 				targetReps: res.data.target_reps,
 				targetSets: res.data.target_sets
 			}))
