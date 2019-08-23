@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Text, Modal } from 'react-native';
+import { View, Text, Modal } from 'react-native';
 
 import { CardSection } from './CardSection';
 import { Button } from './Button';
