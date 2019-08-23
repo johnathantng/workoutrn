@@ -12,7 +12,8 @@ const EditWorkout = (props) => {
 	const [targetReps, setTargetReps] = useState(`${props.targetReps}`);
 	const [currentSets, setCurrentSets] = useState(`${props.currentSets}`);
 	const [targetSets, setTargetSets] = useState(`${props.targetSets}`);
-	const [loading, isLoading] = useState(false);
+	const [updateLoading, isUpdateLoading] = useState(false);
+	const [deleteLoading, isDeleteLoading] = useState(false);
 	const [error, setError] = useState(false);
 
 	onWorkoutValueChange = (text) => {
@@ -46,7 +47,7 @@ const EditWorkout = (props) => {
 	};
 
 	renderUpdateButton = () => {
-		if (loading) {
+		if (updateLoading) {
 			return (
 				<CardSection>
 					<Spinner />
@@ -61,8 +62,24 @@ const EditWorkout = (props) => {
 		}
 	};
 
+	renderDeleteButton = () => {
+		if (deleteLoading) {
+			return (
+				<CardSection>
+					<Spinner />
+				</CardSection>
+			);
+		} else {
+			return (
+				<CardSection>
+					<Button onPress={() => onDeletePress()}> Delete </Button>
+				</CardSection>
+			);
+		}
+	};
+
 	onUpdatePress = () => {
-		isLoading(true);
+		isUpdateLoading(true);
 		axios.put(`http://10.0.2.2:8685/profile/${props.user}/workouts/${props.workout_id}`, {
 			workoutName: workoutValue,
 			workoutType: typeValue,
@@ -72,13 +89,23 @@ const EditWorkout = (props) => {
 			targetSets: targetSets
 		})
 		.then(() => {
-			isLoading(false);
+			isUpdateLoading(false);
 			Actions.main({type: 'reset', user: props.user});
 		})
 		.catch(err => {
 			setError(true);
 			isLoading(false);
 		})
+	}
+
+	onDeletePress = () => {
+		isDeleteLoading(true)
+		axios.delete(`http://10.0.2.2:8685/profile/${props.user}/workouts/${props.workout_id}`)
+			.then(() => {
+				isDeleteLoading(false);
+				Actions.main({type: 'reset', user: props.user});
+			})
+			.catch(err => console.log(err))
 	}
 
 	return (
@@ -147,6 +174,8 @@ const EditWorkout = (props) => {
 			</CardSection>
 
 			{renderUpdateButton()}
+
+			{renderDeleteButton()}
 
 			{hasError()}
 
