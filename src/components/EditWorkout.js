@@ -8,9 +8,9 @@ import { CardSection, StrictInput, Input, Spinner, Button } from './common';
 const EditWorkout = (props) => {
 	const [workoutValue, setWorkoutValue] = useState(props.workoutName);
 	const [typeValue, setTypeValue] = useState(props.workoutType);
-	const [currentReps, setCurrentReps] = useState('0');
+	const [currentReps, setCurrentReps] = useState(`${props.currentReps}`);
 	const [targetReps, setTargetReps] = useState(`${props.targetReps}`);
-	const [currentSets, setCurrentSets] = useState('0');
+	const [currentSets, setCurrentSets] = useState(`${props.currentSets}`);
 	const [targetSets, setTargetSets] = useState(`${props.targetSets}`);
 	const [loading, isLoading] = useState(false);
 	const [error, setError] = useState(false);

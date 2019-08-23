@@ -55,11 +55,15 @@ const WorkoutList = (props) => {
 									workoutName={data.workout} 
 									targetReps={data.target_reps}
 									targetSets={data.target_sets}
+									currentReps={data.current_reps}
+									currentSets={data.current_sets}
 									onPress={() => Actions.edit({
 										user: props.user,
 										workout_id: data.workout_id, 
 										workoutName: data.workout,
 										workoutType: data.type,
+										currentReps: data.current_reps,
+										currentSets: data.current_sets,
 										targetReps: data.target_reps,
 										targetSets: data.target_sets
 									})}

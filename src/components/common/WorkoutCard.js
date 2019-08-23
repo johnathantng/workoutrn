@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-const WorkoutCard = ({ onPress, onLongPress, workoutName, targetReps, targetSets }) => {
+const WorkoutCard = ({ onPress, onLongPress, workoutName, currentSets, currentReps, targetReps, targetSets }) => {
 	const { containerStyle, subCategoriesStyle, textHeaderStyle, textStyle } = styles;
 	return (
 		<TouchableOpacity onPress={onPress} onLongPress={onLongPress}>
@@ -9,8 +9,8 @@ const WorkoutCard = ({ onPress, onLongPress, workoutName, targetReps, targetSets
 				<Text style={textHeaderStyle}> {workoutName} </Text>
 
 				<View style={subCategoriesStyle}>
-					<Text style={textStyle}> Current Reps: 0 </Text>
-					<Text style={textStyle}> Current Sets: 0 </Text>
+					<Text style={textStyle}> Current Reps: {currentReps} </Text>
+					<Text style={textStyle}> Current Sets: {currentSets} </Text>
 				</View>
 
 				<View style={subCategoriesStyle}>
