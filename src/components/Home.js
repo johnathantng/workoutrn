@@ -9,6 +9,7 @@ import { CardSection, Button, ScreenSpinner, Menu } from './common';
 
 const Home = (props) => {
 	const [userName, setUserName] = useState('');
+	const [toggle, toggleDisplay] = useState(false);
 
 	useEffect(() => {
 		axios.get(`http://10.0.2.2:8685/profile/${props.user}`)
@@ -18,12 +19,35 @@ const Home = (props) => {
 			.catch(err => res.json('something went wrong'))
 	}, [])
 
+	onPressWorkouts = () => {
+		toggleDisplay(false);
+		console.log(toggle);
+	}
+
+	onPressMeals = () => {
+		toggleDisplay(true);
+		console.log(toggle);
+	}
+
+	renderList = () => {
+		if (toggle) {
+			return <Text> This is in the works! </Text>;
+		} else {
+			return <WorkoutList user={props.user}/>;
+		}
+	}
+
 	return (
 		<View style={styles.containerStyle}>
 
-			<Menu />
+			<Menu 
+				labelButtonOne="Workouts" 
+				labelButtonTwo="Meals"
+				onPressButtonOne={() => onPressWorkouts()}
+				onPressButtonTwo={() => onPressMeals()}
+			/>
 
-			<WorkoutList user={props.user}/>
+			{renderList()}
 
 			<CardSection>
 				<Button onPress={() => Actions.workout({user: props.user, userName: userName})}> Add Workout </Button>
