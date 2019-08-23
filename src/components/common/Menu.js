@@ -4,7 +4,7 @@ import { TouchableOpacity, Text, Modal } from 'react-native';
 import { CardSection } from './CardSection';
 import { Button } from './Button';
 
-const SelectModal = (props) => {
+const Menu = (props) => {
 	const { labelButtonOne, labelButtonTwo, onPressButtonOne, OnPressButtonTwo } = props;
 	const { cardSectionStyle } = styles;
 
@@ -24,4 +24,4 @@ const styles = {
 	}
 }
 
-export { SelectModal };
+export { Menu };

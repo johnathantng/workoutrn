@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import WorkoutList from './WorkoutList';
 import NavBar from './NavBar';
-import { CardSection, Button, ScreenSpinner } from './common';
+import { CardSection, Button, ScreenSpinner, Menu } from './common';
 
 const Home = (props) => {
 	const [userName, setUserName] = useState('');
@@ -20,6 +20,8 @@ const Home = (props) => {
 
 	return (
 		<View style={styles.containerStyle}>
+
+			<Menu />
 
 			<WorkoutList user={props.user}/>
 
