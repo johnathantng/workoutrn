@@ -21,12 +21,10 @@ const Home = (props) => {
 
 	onPressWorkouts = () => {
 		toggleDisplay(false);
-		console.log(toggle);
 	}
 
 	onPressMeals = () => {
 		toggleDisplay(true);
-		console.log(toggle);
 	}
 
 	renderList = () => {
@@ -34,6 +32,14 @@ const Home = (props) => {
 			return <Text> This is in the works! </Text>;
 		} else {
 			return <WorkoutList user={props.user}/>;
+		}
+	}
+
+	renderAddButton = () => {
+		if (toggle) {
+			return <Button onPress={() => {}}> Add Meal </Button>;
+		} else {
+			return <Button onPress={() => Actions.workout({user: props.user, userName: userName})}> Add Workout </Button>;
 		}
 	}
 
@@ -50,7 +56,7 @@ const Home = (props) => {
 			{renderList()}
 
 			<CardSection>
-				<Button onPress={() => Actions.workout({user: props.user, userName: userName})}> Add Workout </Button>
+				{renderAddButton()}
 			</CardSection>
 			<NavBar homeOpacity={0.7} user={props.user} />
 		</View>
