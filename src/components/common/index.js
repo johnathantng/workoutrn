@@ -4,6 +4,7 @@ export * from './Card';
 export * from './CardSection';
 export * from './StrictInput';
 export * from './Input';
+export * from './Menu';
 export * from './SelectModal';
 export * from './Spinner';
 export * from './ScreenSpinner';
