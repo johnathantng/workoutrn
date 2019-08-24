@@ -6,7 +6,7 @@ import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import CreationForm from './components/CreationForm';
 import Home from './components/Home';
-import Workout from './components/Workout';
+import AddWorkout from './components/AddWorkout';
 import EditWorkout from './components/EditWorkout';
 import Event from './components/Event';
 import Account from './components/Account';
@@ -24,7 +24,7 @@ const RouterComponent = () => {
 				</Scene>
 				<Scene key="main">
 					<Scene key="home" component={Home} title="Workout" titleStyle={styles.sceneTitleText} initial />
-					<Scene key="workout" component={Workout} title="Add a Workout" titleStyle={styles.sceneTitleText} />
+					<Scene key="workout" component={AddWorkout} title="Add a Workout" titleStyle={styles.sceneTitleText} />
 					<Scene key="edit" component={EditWorkout} title="Edit Workout" titleStyle={styles.sceneTitleText} />
 				</Scene>
 				<Scene key="second">
