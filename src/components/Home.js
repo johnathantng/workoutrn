@@ -39,7 +39,7 @@ const Home = (props) => {
 		if (toggle) {
 			return <Button onPress={() => {}}> Add Meal </Button>;
 		} else {
-			return <Button onPress={() => Actions.workout({user: props.user, userName: userName})}> Add Workout </Button>;
+			return <Button onPress={() => Actions.addWorkout({user: props.user, userName: userName})}> Add Workout </Button>;
 		}
 	}
 

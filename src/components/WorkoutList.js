@@ -25,7 +25,7 @@ const WorkoutList = (props) => {
 	onPressEdit = () => {
 		showModal(false);
 		axios.get(`http://10.0.2.2:8685/profile/${targetUserId}/workouts/${targetWorkout}`)
-			.then(res => Actions.edit({
+			.then(res => Actions.editWorkout({
 				user: props.user,
 				workout_id: res.data.workout_id,
 				workoutName: res.data.workout,
@@ -57,7 +57,7 @@ const WorkoutList = (props) => {
 									targetSets={data.target_sets}
 									currentReps={data.current_reps}
 									currentSets={data.current_sets}
-									onPress={() => Actions.edit({
+									onPress={() => Actions.editWorkout({
 										user: props.user,
 										workout_id: data.workout_id, 
 										workoutName: data.workout,
