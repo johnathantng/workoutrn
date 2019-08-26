@@ -39,12 +39,12 @@ const MealsList = (props) => {
 
 	onPressDelete = () => {
 		showModal(false);
-		axios.delete(`http://10.0.2.2:8685/profile/${targetUserId}/workouts/${targetWorkout}`)
+		axios.delete(`http://10.0.2.2:8685/profile/${targetUserId}/workouts/${targetMeal}`)
 			.then(() => Actions.main({type: 'reset', user: props.user}))
 			.catch(err => console.log(err))
 	}
 
-	renderWorkoutList = () => {
+	renderMealsList = () => {
 		if (loading) {
 			return <ScreenSpinner />
 		} else {
@@ -92,7 +92,7 @@ const MealsList = (props) => {
 				onPressDelete={() => onPressDelete()}
 			/>
 
-			{renderWorkoutList()}
+			{renderMealsList()}
 
 		</ScrollView>
 	);
