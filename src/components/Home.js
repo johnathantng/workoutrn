@@ -4,6 +4,7 @@ import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
 
 import WorkoutList from './WorkoutList';
+import MealsList from './MealsList';
 import NavBar from './NavBar';
 import { CardSection, Button, ScreenSpinner, Menu } from './common';
 
@@ -29,9 +30,9 @@ const Home = (props) => {
 
 	renderList = () => {
 		if (toggle) {
-			return <Text> This is in the works! </Text>;
+			return <MealsList user={props.user} />;
 		} else {
-			return <WorkoutList user={props.user}/>;
+			return <WorkoutList user={props.user} />;
 		}
 	}
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-const WorkoutCard = ({ onPress, onLongPress, mealName, mealCalories, mealCarbs, mealProtein, mealFat }) => {
+const MealsCard = ({ onPress, onLongPress, mealName, mealCalories, mealCarbs, mealProtein, mealFat }) => {
 	const { containerStyle, subCategoriesStyle, textHeaderStyle, textStyle } = styles;
 	return (
 		<TouchableOpacity onPress={onPress} onLongPress={onLongPress}>
@@ -56,4 +56,4 @@ const styles = {
 	}
 };
 
-export { WorkoutCard };
+export { MealsCard };

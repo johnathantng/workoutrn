@@ -3,7 +3,7 @@ import { ScrollView, Text } from 'react-native';
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
 
-import { WorkoutCard, ScreenSpinner, SelectModal } from './common';
+import { MealsCard, ScreenSpinner, SelectModal } from './common';
 
 const MealsList = (props) => {
 	const [meals, setMeals] = useState([]);
@@ -12,11 +12,13 @@ const MealsList = (props) => {
 	const [loading, isLoading] = useState(false);
 	const [modal, showModal] = useState(false);
 
+	console.log(meals);
+
 	useEffect(() => {
 		isLoading(true);
 		axios.get(`http://10.0.2.2:8685/profile/${props.user}/meals`)
 			.then(res => {
-				setWorkouts(res.data.reverse());
+				setMeals(res.data.reverse());
 				isLoading(false);
 			})
 			.catch(err => isLoading(false));
@@ -48,30 +50,28 @@ const MealsList = (props) => {
 		if (loading) {
 			return <ScreenSpinner />
 		} else {
-			return workouts.map(data => {
+			return meals.map(data => {
 				return <MealsCard 
 									key={data.meal_id} 
-									mealName={data.meal_name} 
+									mealName={data.meal} 
 									mealCalories={data.calories}
 									mealCarbs={data.carbs}
 									mealProtein={data.protein}
 									mealFat={data.fat}
-									onPress={() => Actions.edit({
+									onPress={() => Actions.editMeal({
 										user: props.user,
-										workout_id: data.workout_id, 
-										workoutName: data.workout,
-										workoutType: data.type,
-										currentReps: data.current_reps,
-										currentSets: data.current_sets,
-										targetReps: data.target_reps,
-										targetSets: data.target_sets
+										meal_id: data.workout_id, 
+										caloriesValue: data.calories,
+										carbsValue: data.carbs,
+										proteinValue: data.protein,
+										fatValue: data.fat
 									})}
 									onLongPress={() => {
 										showModal(true);
-										axios.get(`http://10.0.2.2:8685/profile/${props.user}/workouts/${data.workout_id}`)
+										axios.get(`http://10.0.2.2:8685/profile/${props.user}/workouts/${data.meal_id}`)
 											.then(res => {
 												setTargetUserId(res.data.id);
-												setTargetWorkout(res.data.workout_id);
+												setTargetWorkout(res.data.meal_id);
 											})
 											.catch(err => console.log(err))
 									}}
