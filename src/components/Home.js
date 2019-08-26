@@ -37,7 +37,7 @@ const Home = (props) => {
 
 	renderAddButton = () => {
 		if (toggle) {
-			return <Button onPress={() => {}}> Add Meal </Button>;
+			return <Button onPress={() => Actions.addMeal({user: props.user, userName: userName})}> Add Meal </Button>;
 		} else {
 			return <Button onPress={() => Actions.addWorkout({user: props.user, userName: userName})}> Add Workout </Button>;
 		}

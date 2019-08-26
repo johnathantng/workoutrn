@@ -50,13 +50,13 @@ const MealsList = (props) => {
 			return <ScreenSpinner />
 		} else {
 			return workouts.map(data => {
-				return <WorkoutCard 
-									key={data.workout_id} 
-									workoutName={data.workout} 
-									targetReps={data.target_reps}
-									targetSets={data.target_sets}
-									currentReps={data.current_reps}
-									currentSets={data.current_sets}
+				return <MealsCard 
+									key={data.meal_id} 
+									mealName={data.meal_name} 
+									mealCalories={data.calories}
+									mealCarbs={data.carbs}
+									mealProtein={data.protein}
+									mealFat={data.fat}
 									onPress={() => Actions.edit({
 										user: props.user,
 										workout_id: data.workout_id, 
