@@ -25,15 +25,14 @@ const MealsList = (props) => {
 	onPressEdit = () => {
 		showModal(false);
 		axios.get(`http://10.0.2.2:8685/profile/${targetUserId}/meals/${targetMeal}`)
-			.then(res => Actions.edit({
+			.then(res => Actions.editMeal({
 				user: props.user,
-				workout_id: res.data.workout_id,
-				workoutName: res.data.workout,
-				workoutType: res.data.type,
-				currentReps: res.data.current_reps,
-				currentSets: res.data.current_sets,
-				targetReps: res.data.target_reps,
-				targetSets: res.data.target_sets
+				meal_id: res.data.meal_id,
+				mealName: res.data.meal,
+				caloriesValue: res.data.calories,
+				carbsValue: res.data.carbs,
+				proteinValue: res.data.protein,
+				fatValue: res.data.fat,
 			}))
 			.catch(err => console.log(err))
 	}
