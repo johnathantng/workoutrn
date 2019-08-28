@@ -12,8 +12,6 @@ const MealsList = (props) => {
 	const [loading, isLoading] = useState(false);
 	const [modal, showModal] = useState(false);
 
-	console.log(meals);
-
 	useEffect(() => {
 		isLoading(true);
 		axios.get(`http://10.0.2.2:8685/profile/${props.user}/meals`)
@@ -41,7 +39,7 @@ const MealsList = (props) => {
 
 	onPressDelete = () => {
 		showModal(false);
-		axios.delete(`http://10.0.2.2:8685/profile/${targetUserId}/workouts/${targetMeal}`)
+		axios.delete(`http://10.0.2.2:8685/profile/${targetUserId}/meals/${targetMeal}`)
 			.then(() => Actions.main({type: 'reset', user: props.user}))
 			.catch(err => console.log(err))
 	}
@@ -69,10 +67,10 @@ const MealsList = (props) => {
 									})}
 									onLongPress={() => {
 										showModal(true);
-										axios.get(`http://10.0.2.2:8685/profile/${props.user}/workouts/${data.meal_id}`)
+										axios.get(`http://10.0.2.2:8685/profile/${props.user}/meals/${data.meal_id}`)
 											.then(res => {
 												setTargetUserId(res.data.id);
-												setTargetWorkout(res.data.meal_id);
+												setTargetMeal(res.data.meal_id);
 											})
 											.catch(err => console.log(err))
 									}}
