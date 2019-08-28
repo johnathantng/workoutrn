@@ -60,7 +60,8 @@ const MealsList = (props) => {
 									mealFat={data.fat}
 									onPress={() => Actions.editMeal({
 										user: props.user,
-										meal_id: data.workout_id, 
+										meal_id: data.meal_id, 
+										mealName: data.meal,
 										caloriesValue: data.calories,
 										carbsValue: data.carbs,
 										proteinValue: data.protein,

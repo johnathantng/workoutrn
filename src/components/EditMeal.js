@@ -7,10 +7,10 @@ import { CardSection, StrictInput, Input, Spinner, Button } from './common';
 
 const EditMeal = (props) => {
 	const [mealName, setMealName] = useState(props.mealName);
-	const [caloriesValue, setCaloriesValue] = useState(props.caloriesValue);
+	const [caloriesValue, setCaloriesValue] = useState(`${props.caloriesValue}`);
 	const [carbsValue, setCarbsValue] = useState(`${props.carbsValue}`);
 	const [proteinValue, setProteinValue] = useState(`${props.proteinValue}`);
-	const [fatValue, setFatValue] = useState(`${props.setFatValue}`);
+	const [fatValue, setFatValue] = useState(`${props.fatValue}`);
 	const [updateLoading, isUpdateLoading] = useState(false);
 	const [deleteLoading, isDeleteLoading] = useState(false);
 	const [error, setError] = useState(false);
@@ -79,12 +79,12 @@ const EditMeal = (props) => {
 
 	onUpdatePress = () => {
 		isUpdateLoading(true);
-		axios.put(`http://10.0.2.2:8685/profile/${props.user}/workouts/${props.workout_id}`, {
-			mealName: mealName,
-			caloriesValue: caloriesValue,
-			carbsValue: carbsValue,
-			proteinValue: proteinvalue,
-			fatValue: fatValue
+		axios.put(`http://10.0.2.2:8685/profile/${props.user}/meals/${props.meal_id}`, {
+			meal: mealName,
+			calories: caloriesValue,
+			carbs: carbsValue,
+			protein: proteinValue,
+			fat: fatValue
 		})
 		.then(() => {
 			isUpdateLoading(false);
@@ -92,7 +92,7 @@ const EditMeal = (props) => {
 		})
 		.catch(err => {
 			setError(true);
-			isLoading(false);
+			isUpdateLoading(false);
 		})
 	}
 
