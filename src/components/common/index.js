@@ -1,6 +1,7 @@
 export * from './Button';
 export * from './WorkoutCard';
 export * from './MealsCard';
+export * from './DayCard';
 export * from './Card';
 export * from './CardSection';
 export * from './StrictInput';
