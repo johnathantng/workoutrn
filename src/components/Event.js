@@ -2,14 +2,13 @@ import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
 
 import NavBar from './NavBar';
-import UserContext from './LoginForm';
+import DaysList from './DaysList';
 
 const Event = (props) => {
 	return (
 		<View style={styles.containerStyle}>
 			<ScrollView style={styles.scrollViewStyle}>
-				<Text> Event </Text>
-				{/* Create a list of weekdays in order to note your progress */}
+				<DaysList />
 			</ScrollView>
 			<NavBar eventOpacity={0.7} user={props.user}/>
 		</View>
