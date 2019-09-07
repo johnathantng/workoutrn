@@ -8,6 +8,9 @@ const Event = (props) => {
 	return (
 		<View style={styles.containerStyle}>
 			<ScrollView style={styles.scrollViewStyle}>
+				<View>
+					<Text> Track This Week's Progress </Text>
+				</View>
 				<DaysList />
 			</ScrollView>
 			<NavBar eventOpacity={0.7} user={props.user}/>
