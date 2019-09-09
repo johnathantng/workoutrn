@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const DayPage = () => {
+const DayPage = ({ dayName }) => {
     return (
         <View>
-            <Text> Test </Text>
+            <Text> Here is your summary for {dayName} </Text> 
         </View>
     );
 };
