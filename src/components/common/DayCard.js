@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, View, Text } from 'react-native';
 
-const DayCard = ({ onPress, onLongPress, dayName }) => {
+const DayCard = ({ onPress, onLongPress, dayName, dayCalories, dayWorkoutCount }) => {
 	const { containerStyle, subCategoriesStyle, textHeaderStyle, textStyle } = styles;
 	return (
 		<TouchableOpacity onPress={onPress} onLongPress={onLongPress}>
