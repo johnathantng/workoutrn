@@ -3,14 +3,15 @@ import { View, Text, ScrollView } from 'react-native';
 
 import NavBar from './NavBar';
 import DaysList from './DaysList';
+import { CardSection } from './common';
 
 const Event = (props) => {
 	return (
 		<View style={styles.containerStyle}>
 			<ScrollView style={styles.scrollViewStyle}>
-				<View>
+				<CardSection>
 					<Text> Track This Week's Progress </Text>
-				</View>
+				</CardSection>
 				<DaysList />
 			</ScrollView>
 			<NavBar eventOpacity={0.7} user={props.user}/>
