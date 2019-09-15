@@ -7,8 +7,8 @@ const DayCard = ({ onPress, onLongPress, dayName, dayCalories, dayWorkoutCount }
 		<TouchableOpacity onPress={onPress} onLongPress={onLongPress}>
 			<View style={containerStyle}>
 				<Text style={textHeaderStyle}> {dayName} </Text>
-				<Text> Total Calories: {dayCalories} </Text>
-				<Text> Total Workouts: {dayWorkoutCount} </Text>
+				<Text style={textStyle}> Total Calories: {dayCalories} </Text>
+				<Text style={textStyle}> Total Workouts: {dayWorkoutCount} </Text>
 			</View>
 		</TouchableOpacity>
 	);
