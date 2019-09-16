@@ -10,7 +10,7 @@ const Event = (props) => {
 		<View style={styles.containerStyle}>
 			<ScrollView style={styles.scrollViewStyle}>
 				<CardSection>
-					<Text> Track This Week's Progress </Text>
+					<Text style={styles.textStyle}> Track This Week's Progress </Text>
 				</CardSection>
 				<DaysList />
 			</ScrollView>
@@ -22,6 +22,9 @@ const Event = (props) => {
 const styles = {
 	containerStyle: {
 		flex: 1
+	},
+	textStyle: {
+		textAlign: 'center'
 	},
 	scrollViewStyle: {
 		flex: 1
