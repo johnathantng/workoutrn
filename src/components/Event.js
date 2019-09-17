@@ -24,7 +24,9 @@ const styles = {
 		flex: 1
 	},
 	textStyle: {
-		textAlign: 'center'
+		textAlign: 'center',
+		fontSize: 20,
+		color: '#352e30'
 	},
 	scrollViewStyle: {
 		flex: 1
