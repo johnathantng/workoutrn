@@ -14,4 +14,10 @@ const DayPage = ({ dayName, totalCalories }) => {
     );
 };
 
+const styles = {
+	textStyle: {
+		color: '#352e30'
+	}
+}
+
 export default DayPage;
