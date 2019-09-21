@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
 
 import WorkoutList from './WorkoutList';
 import { Menu } from './common';
 
 const DayPage = ({ dayName, totalCalories }) => {
+    const [toggle, toggleDisplay] = useState(false);
+
+    onPressWorkouts = () => {
+        toggleDisplay(false);
+    }
+
+    onPressMeals = () => {
+        toggleDisplay(true);
+    }
+
     return (
         <View>
             <Text style={styles.textStyle}> Here is your summary for {dayName} </Text> 
@@ -13,8 +23,8 @@ const DayPage = ({ dayName, totalCalories }) => {
             <Menu 
                 labelButtonOne="Workouts" 
                 labelButtonTwo="Meals"
-                //  onPressButtonOne={() => onPressWorkouts()}
-                //  onPressButtonTwo={() => onPressMeals()}
+                onPressButtonOne={() => onPressWorkouts()}
+                onPressButtonTwo={() => onPressMeals()}
             />
             <WorkoutList />
         </View>
