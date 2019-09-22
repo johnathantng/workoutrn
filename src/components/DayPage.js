@@ -15,6 +15,14 @@ const DayPage = ({ dayName, totalCalories }) => {
         toggleDisplay(true);
     }
 
+    renderList = () => {
+        if (toggle) {
+            return <MealsList user={props.user} />;
+        } else {
+            return <WorkoutList user={props.user} />;
+        }
+    }
+
     return (
         <View>
             <Text style={styles.textStyle}> Here is your summary for {dayName} </Text> 
@@ -26,7 +34,9 @@ const DayPage = ({ dayName, totalCalories }) => {
                 onPressButtonOne={() => onPressWorkouts()}
                 onPressButtonTwo={() => onPressMeals()}
             />
-            <WorkoutList />
+
+            {renderList()}
+            
         </View>
     );
 };
