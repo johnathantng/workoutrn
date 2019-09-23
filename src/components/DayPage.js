@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
 
 import WorkoutList from './WorkoutList';
+import MealsList from './MealsList';
 import { Menu } from './common';
 
 const DayPage = ({ dayName, totalCalories }) => {
