@@ -9,7 +9,7 @@ const DaysList = (props) => {
         <ScrollView>
             <DayCard 
                 dayName="Sunday" 
-                onPress={Actions.track()}
+                onPress={() => Actions.track()}
             />
             <DayCard 
                 dayName="Monday" 
