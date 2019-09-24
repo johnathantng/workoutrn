@@ -10,6 +10,7 @@ import AddMeal from './components/AddMeal';
 import EditMeal from './components/EditMeal';
 import AddWorkout from './components/AddWorkout';
 import EditWorkout from './components/EditWorkout';
+import DayPage from './components/DayPage';
 import Event from './components/Event';
 import Account from './components/Account';
 
@@ -33,6 +34,7 @@ const RouterComponent = () => {
 				</Scene>
 				<Scene key="second">
 					<Scene key="event" component={Event} title="Calendar" titleStyle={styles.sceneTitleText} initial />
+					<Scene key="track" component={DayPage} title="Track" titleStyle={styles.sceneTitleText} />
 				</Scene>
 				<Scene key="third">
 					<Scene key="account" component={Account} title="Account" titleStyle={styles.sceneTitleText} initial />

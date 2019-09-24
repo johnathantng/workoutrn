@@ -5,7 +5,7 @@ import WorkoutList from './WorkoutList';
 import MealsList from './MealsList';
 import { Menu } from './common';
 
-const DayPage = ({ dayName, totalCalories }) => {
+const DayPage = ({ dayName, totalCalories, ...props }) => {
     const [toggle, toggleDisplay] = useState(false);
 
     onPressWorkouts = () => {
