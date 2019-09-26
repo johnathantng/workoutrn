@@ -45,7 +45,8 @@ const DayPage = ({ dayName, totalCalories, ...props }) => {
 const styles = {
 	textStyle: {
 		color: '#352e30',
-		fontSize: 18
+		fontSize: 18,
+        textAlign: 'center'
 	}
 }
 
