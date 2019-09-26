@@ -13,21 +13,27 @@ const DaysList = (props) => {
             />
             <DayCard 
                 dayName="Monday" 
+                onPress={() => Actions.track()}
             />
             <DayCard 
                 dayName="Tuesday" 
+                onPress={() => Actions.track()}
             />
             <DayCard 
                 dayName="Wednesday" 
+                onPress={() => Actions.track()}
             />
             <DayCard 
                 dayName="Thursday" 
+                onPress={() => Actions.track()}
             />
             <DayCard 
-                dayName="Friday" 
+                dayName="Friday"
+                onPress={() => Actions.track()} 
             />
             <DayCard 
                 dayName="Saturday" 
+                onPress={() => Actions.track()}
             />
         </ScrollView>
     );
