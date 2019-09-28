@@ -24,17 +24,26 @@ const DayPage = ({ dayName, totalCalories, ...props }) => {
         }
     }
 
+    renderHeader = () => {
+        if (toggle) {
+            return <Text> Here are your meals for today! </Text>
+        } else {
+            return <Text> Here are your exercises for today! </Text>
+        }
+    }
+
     return (
         <View>
             <Text style={styles.textStyle}> Here is your summary for {dayName} </Text> 
             <Text style={styles.textStyle}> Your total calories for {dayName} is {totalCalories} </Text>
-            <Text style={styles.textStyle}> Here are your exercises and meals for today </Text>
             <Menu 
                 labelButtonOne="Workouts" 
                 labelButtonTwo="Meals"
                 onPressButtonOne={() => onPressWorkouts()}
                 onPressButtonTwo={() => onPressMeals()}
             />
+
+            {renderHeader()}
 
             {renderList()}
             
