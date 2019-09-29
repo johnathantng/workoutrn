@@ -26,9 +26,9 @@ const DayPage = ({ dayName, totalCalories, ...props }) => {
 
     renderHeader = () => {
         if (toggle) {
-            return <Text> Here are your meals for today! </Text>
+            return <Text style={styles.textStyle}> Here are your meals for today! </Text>
         } else {
-            return <Text> Here are your exercises for today! </Text>
+            return <Text style={styles.textStyle}> Here are your exercises for today! </Text>
         }
     }
 
