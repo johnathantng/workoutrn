@@ -34,7 +34,7 @@ const DayPage = ({ dayName, totalCalories, ...props }) => {
 
     return (
         <View>
-            <Text style={styles.textStyle}> Here is your summary for {dayName} </Text> 
+            <Text style={styles.headerStyle}> Here is your summary for {dayName} </Text> 
             <Text style={styles.textStyle}> Your total calories for {dayName} is {totalCalories} </Text>
             <Menu 
                 labelButtonOne="Workouts" 
@@ -57,6 +57,10 @@ const styles = {
 		fontSize: 18,
         textAlign: 'center'
 	}
+    headerStyle: {
+        fontSize: 20,
+        textAlign: 'center'
+    }
 }
 
 export default DayPage;
