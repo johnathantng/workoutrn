@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 import WorkoutList from './WorkoutList';
 import MealsList from './MealsList';
-import { Menu } from './common';
+import { Menu, Button } from './common';
 
 const DayPage = ({ dayName, totalCalories, ...props }) => {
     const [toggle, toggleDisplay] = useState(false);
@@ -46,6 +46,8 @@ const DayPage = ({ dayName, totalCalories, ...props }) => {
             {renderHeader()}
 
             {renderList()}
+
+            <Button> Update </Button>
             
         </View>
     );
