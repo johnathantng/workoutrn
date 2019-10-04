@@ -47,7 +47,7 @@ const DayPage = ({ dayName, totalCalories, ...props }) => {
 
             {renderList()}
 
-            <Button> Update </Button>
+            <Button onPress={() => pressUpdateButton()}> Update </Button>
             
         </View>
     );
