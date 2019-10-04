@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 import WorkoutList from './WorkoutList';
 import MealsList from './MealsList';
@@ -30,6 +31,10 @@ const DayPage = ({ dayName, totalCalories, ...props }) => {
         } else {
             return <Text style={styles.textStyle}> Here are your exercises for today! </Text>
         }
+    }
+
+    pressUpdateButton = () => {
+        // placeholder
     }
 
     return (
