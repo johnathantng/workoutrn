@@ -9,6 +9,10 @@ import { Menu, Button } from './common';
 const DayPage = ({ dayName, totalCalories, ...props }) => {
     const [toggle, toggleDisplay] = useState(false);
 
+    useEffect(() => {
+        //create function to retrieve the data for specified day
+    })
+
     onPressWorkouts = () => {
         toggleDisplay(false);
     }
