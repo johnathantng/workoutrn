@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const Alert = () => {
+const Alert = ({ children }) => {
 	//alert for errors / server issues
 	<View>
-		<Text> Hello! This is an alert! </Text>
+		<Text> {children} </Text>
 	</View>
 }
 
