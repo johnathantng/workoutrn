@@ -5,8 +5,16 @@ const Alert = ({ errorNumber, children }) => {
 	//alert for errors / server issues
 	<View>
 		<Text> Error: {errorNumber} </Text>
-		<Text> {children} </Text>
+		<Text style={styles.textStyle}> {children} </Text>
 	</View>
+}
+
+const styles = {
+	textStyle: {
+		flex: 1,
+		textAlign: 'center',
+		color: '#352e30'
+	}
 }
 
 export { Alert };
