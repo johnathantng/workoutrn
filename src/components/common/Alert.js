@@ -13,7 +13,10 @@ const styles = {
 	textStyle: {
 		flex: 1,
 		textAlign: 'center',
-		color: '#352e30'
+		color: '#352e30',
+		position: 'absolute',
+		left: 0,
+		bottom: 0
 	}
 }
 
