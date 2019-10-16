@@ -41,10 +41,6 @@ const DayPage = ({ dayName, totalCalories, ...props }) => {
         }
     }
 
-    pressUpdateButton = () => {
-        // placeholder
-    }
-
     pressDeleteButton = () => {
         //placeholder
     }
@@ -63,8 +59,6 @@ const DayPage = ({ dayName, totalCalories, ...props }) => {
             {renderHeader()}
 
             {renderList()}
-
-            <Button onPress={() => pressUpdateButton()}> Update </Button>
 
             <Button onPress={() => pressDeleteButton()}> Delete All </Button>
             
