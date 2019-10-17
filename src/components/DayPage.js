@@ -20,6 +20,10 @@ const DayPage = ({ dayName, totalCalories, ...props }) => {
             })
     }, [])
 
+    alertMessageDisplay = () => {
+        //toggles when state of server error is true
+    }
+
     onPressWorkouts = () => {
         toggleDisplay(false);
     }
