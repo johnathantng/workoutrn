@@ -4,7 +4,7 @@ import { Actions } from 'react-native-router-flux';
 
 import WorkoutList from './WorkoutList';
 import MealsList from './MealsList';
-import { Menu, Button } from './common';
+import { Menu, Button, Alert } from './common';
 
 const DayPage = ({ dayName, totalCalories, ...props }) => {
     const [toggle, toggleDisplay] = useState(false);
@@ -24,6 +24,7 @@ const DayPage = ({ dayName, totalCalories, ...props }) => {
         //toggles when state of server error is true
         if (serverError) {
             // return alertMessage
+            <Alert />
         }
     }
 
@@ -71,6 +72,8 @@ const DayPage = ({ dayName, totalCalories, ...props }) => {
             {renderList()}
 
             <Button onPress={() => pressDeleteButton()}> Delete All </Button>
+
+            {alertMessageDisplay()}
             
         </View>
     );
