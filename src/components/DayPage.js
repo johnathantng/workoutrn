@@ -24,7 +24,7 @@ const DayPage = ({ dayName, totalCalories, ...props }) => {
         //toggles when state of server error is true
         if (serverError) {
             // return alertMessage
-            <Alert />
+            <Alert errorNumber='404'> Cannot find data </Alert>
         }
     }
 
