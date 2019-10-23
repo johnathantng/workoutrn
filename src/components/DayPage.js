@@ -17,6 +17,7 @@ const DayPage = ({ dayName, totalCalories, ...props }) => {
             })
             .catch(err => {
                 serverErrorDisplay(true);
+                // need to catch correct json response and then put into logic
             })
     }, [])
 
@@ -71,7 +72,7 @@ const DayPage = ({ dayName, totalCalories, ...props }) => {
 
             {renderList()}
 
-            <Button onPress={() => pressDeleteButton()}> Delete All </Button>
+            <Button onPress={() => pressDeleteButton()}> Delete data </Button>
 
             {alertMessageDisplay()}
             
