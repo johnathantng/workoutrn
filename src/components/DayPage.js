@@ -8,7 +8,8 @@ import { Menu, Button, Alert } from './common';
 
 const DayPage = ({ dayName, totalCalories, ...props }) => {
     const [toggle, toggleDisplay] = useState(false);
-    const [serverError, serverErrorDisplay] = userState(false);
+    const [serverError, serverErrorDisplay] = useState(false);
+    const [username, setUserName] = useState({});
 
     useEffect(() => {
         axios.get(`http://10.0.2.2:8685/profile/${props.user}`)
