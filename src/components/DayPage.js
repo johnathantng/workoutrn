@@ -54,10 +54,6 @@ const DayPage = ({ dayName, totalCalories, ...props }) => {
         }
     }
 
-    pressDeleteButton = () => {
-        //placeholder
-    }
-
     return (
         <View>
             <Text style={styles.headerStyle}> Here is your summary for {dayName} </Text> 
@@ -72,8 +68,6 @@ const DayPage = ({ dayName, totalCalories, ...props }) => {
             {renderHeader()}
 
             {renderList()}
-
-            <Button onPress={() => pressDeleteButton()}> Delete data </Button>
 
             {alertMessageDisplay()}
             
