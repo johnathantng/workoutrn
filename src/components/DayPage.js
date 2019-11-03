@@ -82,6 +82,7 @@ const styles = {
         textAlign: 'center'
 	}
     headerStyle: {
+        color: '#352e30',
         fontSize: 20,
         textAlign: 'center'
     }
