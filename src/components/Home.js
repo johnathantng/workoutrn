@@ -17,6 +17,7 @@ const Home = (props) => {
 			.then(user => {
 				setUserName(user.data.username);
 			})
+			//catch err and spit it out into alert.js
 			.catch(err => res.json('something went wrong'))
 	}, [])
 
