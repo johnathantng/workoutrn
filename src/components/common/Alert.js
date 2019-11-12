@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 const Alert = ({ errorNumber, children }) => {
 	//alert for errors / server issues
 	<View>
-		<Text style={styles.textStyle}> Error: {errorNumber} </Text>
+		<Text style={styles.textStyle}> Error number: {errorNumber} </Text>
 		<Text style={styles.textStyle}> {children} </Text>
 	</View>
 }
