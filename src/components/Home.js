@@ -6,7 +6,7 @@ import axios from 'axios';
 import WorkoutList from './WorkoutList';
 import MealsList from './MealsList';
 import NavBar from './NavBar';
-import { CardSection, Button, ScreenSpinner, Menu } from './common';
+import { CardSection, Button, ScreenSpinner, Menu, Alert } from './common';
 
 const Home = (props) => {
 	const [userName, setUserName] = useState('');
