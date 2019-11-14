@@ -6,6 +6,7 @@ const Alert = ({ errorNumber, children }) => {
 	<View>
 		<Text style={styles.textStyle}> Error number: {errorNumber} </Text>
 		<Text style={styles.textStyle}> {children} </Text>
+		<Text> Please wait while we try to get a response from the server </Text>
 	</View>
 }
 
