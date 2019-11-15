@@ -13,6 +13,7 @@ const Alert = ({ errorNumber, children }) => {
 const styles = {
 	textStyle: {
 		flex: 1,
+		fontSize: 18,
 		textAlign: 'center',
 		color: '#352e30',
 		position: 'absolute',
