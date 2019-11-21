@@ -2,7 +2,9 @@ import React from 'react';
 
 const Hint = () => {
 	return (
-		<div> hint </div>
+		<View> 
+			Hint 
+		</View>
 	);
 }
 
