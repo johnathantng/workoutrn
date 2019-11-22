@@ -11,3 +11,4 @@ export * from './SelectModal';
 export * from './Spinner';
 export * from './ScreenSpinner';
 export * from './NavBarIcon';
+export * from './Hint';
