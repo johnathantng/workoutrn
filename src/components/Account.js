@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import axios from 'axios';
 
-import { Card, CardSection, ScreenSpinner, Spinner } from './common';
+import { Card, CardSection, ScreenSpinner, Spinner, Hint } from './common';
 import NavBar from './NavBar';
 
 const Account = (props) => {
