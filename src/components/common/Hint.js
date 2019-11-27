@@ -1,9 +1,10 @@
 import React from 'react';
+import { View, Text } from 'react-native';
 
 const Hint = () => {
 	return (
 		<View> 
-			Hint 
+			<Text> Test </Text>
 		</View>
 	);
 }
