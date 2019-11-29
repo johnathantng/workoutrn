@@ -9,4 +9,10 @@ const Hint = () => {
 	);
 }
 
+const styles = {
+	textStyle: {
+		
+	}
+}
+
 export { Hint };
