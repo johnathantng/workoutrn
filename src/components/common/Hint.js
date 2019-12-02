@@ -11,7 +11,8 @@ const Hint = () => {
 
 const styles = {
 	textStyle: {
-		fontSize: 18
+		fontSize: 18,
+		textAlign: 'center'
 	}
 }
 
