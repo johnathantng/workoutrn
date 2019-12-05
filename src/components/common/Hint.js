@@ -12,7 +12,8 @@ const Hint = () => {
 const styles = {
 	textStyle: {
 		fontSize: 18,
-		textAlign: 'center'
+		textAlign: 'center',
+		position: 'absolute'
 	}
 }
 
