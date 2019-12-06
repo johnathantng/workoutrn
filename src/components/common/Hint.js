@@ -13,7 +13,8 @@ const styles = {
 	textStyle: {
 		fontSize: 18,
 		textAlign: 'center',
-		position: 'absolute'
+		position: 'absolute',
+		color: '#352e30',
 	}
 }
 
