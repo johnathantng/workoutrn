@@ -15,6 +15,8 @@ const styles = {
 		textAlign: 'center',
 		position: 'absolute',
 		color: '#352e30',
+		left: 0,
+		bottom: 0
 	}
 }
 
