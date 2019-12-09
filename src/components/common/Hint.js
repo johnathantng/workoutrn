@@ -10,6 +10,9 @@ const Hint = () => {
 }
 
 const styles = {
+	boxStyle: {
+		flex: 1
+	},
 	textStyle: {
 		flex: 1,
 		fontSize: 18,
