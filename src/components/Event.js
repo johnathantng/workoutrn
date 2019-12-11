@@ -3,7 +3,7 @@ import { View, Text, ScrollView } from 'react-native';
 
 import NavBar from './NavBar';
 import DaysList from './DaysList';
-import { CardSection } from './common';
+import { CardSection, Alert, Hint } from './common';
 
 const Event = (props) => {
 	return (
