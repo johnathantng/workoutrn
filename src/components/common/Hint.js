@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 const Hint = () => {
 	return (
 		<View style={styles.boxStyle}> 
-			<Text> Test </Text>
+			<Text style={styles.textStyle}> Test </Text>
 		</View>
 	);
 }
