@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const Hint = () => {
+const Hint = ({ hintMessage }) => {
 	return (
 		<View style={styles.boxStyle}> 
-			<Text style={styles.textStyle}> Test </Text>
+			<Text style={styles.textStyle}> {hintMessage} </Text>
 		</View>
 	);
 }
