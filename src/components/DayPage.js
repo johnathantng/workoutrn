@@ -4,7 +4,7 @@ import { Actions } from 'react-native-router-flux';
 
 import WorkoutList from './WorkoutList';
 import MealsList from './MealsList';
-import { Menu, Button, Alert } from './common';
+import { Menu, Button, Alert, Hint } from './common';
 
 const DayPage = ({ dayName, totalCalories, ...props }) => {
     const [toggle, toggleDisplay] = useState(false);
