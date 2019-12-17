@@ -3,7 +3,7 @@ import { View, Text, TextInput } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
 
-import { CardSection, StrictInput, Input, Spinner, Button } from './common';
+import { CardSection, StrictInput, Input, Spinner, Button, Hint } from './common';
 
 const Workout = (props) => {
 	const [mealName, setMealName] = useState('');
