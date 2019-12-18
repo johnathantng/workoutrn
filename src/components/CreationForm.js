@@ -3,7 +3,7 @@ import { View, Text, TextInput, Picker } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
 
-import { CardSection, StrictInput, Spinner, Button } from './common';
+import { CardSection, StrictInput, Spinner, Button, Hint } from './common';
 
 const CreationForm = (props) => {
 	const [genderValue, setGenderValue] = useState(genderValue);
