@@ -3,7 +3,7 @@ import { View, Text, TextInput, Picker } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
 
-import { CardSection, StrictInput, Input, Spinner, Button } from './common';
+import { CardSection, StrictInput, Input, Spinner, Button, Hint, Alert } from './common';
 
 const Workout = (props) => {
 	const [workoutValue, setWorkoutValue] = useState('');
