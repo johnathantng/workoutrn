@@ -12,13 +12,13 @@ const Hint = ({ hintMessage }) => {
 
 const styles = {
 	boxStyle: {
-		flex: 1
+		flex: 1,
+		position: 'absolute',
 	},
 	textStyle: {
 		flex: 1,
 		fontSize: 18,
 		textAlign: 'center',
-		position: 'absolute',
 		color: '#352e30',
 		left: 0,
 		bottom: 0
