@@ -6,6 +6,11 @@ import DaysList from './DaysList';
 import { CardSection, Alert, Hint } from './common';
 
 const Event = (props) => {
+
+	useEffect(() => {
+		// render hint in here
+	}, [])
+
 	return (
 		<View style={styles.containerStyle}>
 			<ScrollView style={styles.scrollViewStyle}>
